@@ -60,8 +60,9 @@
                     <div class="hero-image">
 
                         <img
-                            src="https://images.unsplash.com/photo-1542291026-7eec264c27ff"
-                            alt="Tas Anyaman"
+                            src="{{ asset('image/products/img-hero.jpg') }}"
+                            alt="Hazmi Tas Anyaman"
+                            class="img-fluid hero-image"
                         >
 
                     </div>
