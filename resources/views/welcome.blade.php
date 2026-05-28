@@ -37,7 +37,7 @@
 
                     <li class="nav-item">
                         <a class="nav-link active" href="#">
-                            Home
+                            Dashboard
                         </a>
                     </li>
 
