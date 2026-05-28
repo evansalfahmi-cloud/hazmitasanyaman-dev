@@ -7,4 +7,7 @@
     {{-- Hero Section --}}
     @include('frontend.home.sections.hero')
 
+    {{-- Categories --}}
+    @include('frontend.home.sections.categories')
+
 @endsection
