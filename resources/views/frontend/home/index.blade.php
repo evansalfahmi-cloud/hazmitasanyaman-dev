@@ -10,4 +10,7 @@
     {{-- Categories --}}
     @include('frontend.home.sections.categories')
 
+    {{-- Featured Products --}}
+    @include('frontend.home.sections.featured-products')
+
 @endsection
