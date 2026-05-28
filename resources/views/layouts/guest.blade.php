@@ -10,7 +10,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>
-        {{ config('app.name', 'Hazmi Tas Anyaman') }}
+        Login | Hazmi Tas Anyaman
     </title>
 
     <!-- Fonts -->
@@ -19,49 +19,83 @@
     <link
         href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap"
         rel="stylesheet"
-    />
+    >
 
-    <!-- Scripts -->
+    <!-- Assets -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>
 
-<body class="font-sans antialiased bg-[#F6F1E9]">
+<body
+    style="
+        background-color:#F6F1E9;
+        font-family:'Figtree',sans-serif;
+    "
+>
 
-    <div class="min-h-screen flex items-center justify-center px-4">
+    <div class="container">
 
-        <!-- Card -->
-        <div class="w-full max-w-md bg-white rounded-3xl shadow-xl p-8">
+        <div
+            class="row justify-content-center align-items-center"
+            style="min-height:100vh;"
+        >
 
-            <!-- Logo -->
-            <div class="text-center mb-8">
+            <div class="col-lg-4 col-md-6">
 
-                <a href="/">
+                <div
+                    class="card border-0 shadow-lg"
+                    style="
+                        border-radius:24px;
+                        overflow:hidden;
+                    "
+                >
 
-                    <img
-                        src="{{ asset('image/logo/logo.png') }}"
-                        alt="Hazmi Tas Anyaman"
-                        class="w-24 mx-auto mb-4"
-                    >
+                    <div class="card-body p-5">
 
-                </a>
+                        <!-- Logo -->
+                        <div class="text-center mb-4">
 
-                <h1 class="text-3xl font-bold text-[#9B5A3C]">
+                            <a href="{{ url('/') }}">
 
-                    HAZMI
+                                <img
+                                    src="{{ asset('image/logo/logo.png') }}"
+                                    alt="Hazmi Tas Anyaman"
+                                    style="
+                                        width:90px;
+                                        height:auto;
+                                    "
+                                >
 
-                </h1>
+                            </a>
 
-                <p class="text-sm tracking-[4px] text-[#B67C5A] mt-1">
+                            <h2
+                                class="fw-bold mt-3 mb-1"
+                                style="color:#9B5A3C;"
+                            >
+                                HAZMI
+                            </h2>
 
-                    TAS ANYAMAN
+                            <p
+                                class="mb-0"
+                                style="
+                                    color:#B67C5A;
+                                    letter-spacing:4px;
+                                    font-size:14px;
+                                "
+                            >
+                                TAS ANYAMAN
+                            </p>
 
-                </p>
+                        </div>
+
+                        <!-- Form -->
+                        {{ $slot }}
+
+                    </div>
+
+                </div>
 
             </div>
-
-            <!-- Form Content -->
-            {{ $slot }}
 
         </div>
 

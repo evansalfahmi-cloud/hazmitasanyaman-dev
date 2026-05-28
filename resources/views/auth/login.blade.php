@@ -5,83 +5,101 @@
         @csrf
 
         <!-- Email -->
-        <div class="mb-5">
+        <div class="mb-4">
 
-            <label class="block mb-2 text-sm font-semibold text-[#5C3A2E]">
-
+            <label
+                for="email"
+                class="form-label fw-semibold"
+                style="color:#5C3A2E;"
+            >
                 Email
-
             </label>
 
             <input
+                id="email"
                 type="email"
                 name="email"
                 value="{{ old('email') }}"
+                class="form-control"
                 required
                 autofocus
-                class="w-full rounded-xl border border-[#D8C3B5] bg-white px-4 py-3 text-[#3A2A22] focus:border-[#B67C5A] focus:ring-[#B67C5A]"
             >
+
+            @error('email')
+                <div class="text-danger small mt-1">
+                    {{ $message }}
+                </div>
+            @enderror
 
         </div>
 
         <!-- Password -->
-        <div class="mb-5">
+        <div class="mb-4">
 
-            <label class="block mb-2 text-sm font-semibold text-[#5C3A2E]">
-
+            <label
+                for="password"
+                class="form-label fw-semibold"
+                style="color:#5C3A2E;"
+            >
                 Password
-
             </label>
 
             <input
+                id="password"
                 type="password"
                 name="password"
+                class="form-control"
                 required
-                class="w-full rounded-xl border border-[#D8C3B5] bg-white px-4 py-3 text-[#3A2A22] focus:border-[#B67C5A] focus:ring-[#B67C5A]"
             >
+
+            @error('password')
+                <div class="text-danger small mt-1">
+                    {{ $message }}
+                </div>
+            @enderror
 
         </div>
 
-        <!-- Remember -->
-        <div class="flex items-center mb-6">
+        <!-- Remember Me -->
+        <div class="form-check mb-4">
 
             <input
+                class="form-check-input"
                 type="checkbox"
                 name="remember"
-                class="rounded border-[#D8C3B5] text-[#9B5A3C] focus:ring-[#B67C5A]"
+                id="remember_me"
             >
 
-            <span class="ml-2 text-sm text-[#6B4E3D]">
-
-                Remember me
-
-            </span>
+            <label
+                class="form-check-label"
+                for="remember_me"
+            >
+                Remember Me
+            </label>
 
         </div>
 
-        <!-- Actions -->
-        <div class="flex items-center justify-between">
+        <!-- Action -->
+        <div class="d-flex justify-content-between align-items-center">
 
             @if (Route::has('password.request'))
 
                 <a
-                    class="text-sm text-[#9B5A3C] hover:text-[#D97A7A]"
                     href="{{ route('password.request') }}"
+                    class="text-decoration-none"
+                    style="color:#9B5A3C;"
                 >
-
                     Lupa Password?
-
                 </a>
 
             @endif
 
             <button
                 type="submit"
-                class="bg-[#9B5A3C] hover:bg-[#D97A7A] text-white font-semibold px-6 py-3 rounded-xl transition duration-300"
+                class="btn text-white"
+                style="background-color:#9B5A3C;"
             >
-
-                LOGIN
-
+                Login
             </button>
 
         </div>
