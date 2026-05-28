@@ -53,10 +53,6 @@
                                 Tas Fashion
                             </option>
 
-                            <option>
-                                Tas Souvenir
-                            </option>
-
                         </select>
 
                         <!-- Input -->
