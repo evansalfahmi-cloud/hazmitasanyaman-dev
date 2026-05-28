@@ -1,0 +1,618 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
+
+/* ========================================
+   FONT SYSTEM
+======================================== */
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('/fonts/SF-Pro-Display-Regular.otf') format('opentype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('/fonts/SF-Pro-Display-Medium.otf') format('opentype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('/fonts/SF-Pro-Display-Bold.otf') format('opentype');
+    font-weight: 700;
+}
+
+
+/* ========================================
+   ROOT COLOR SYSTEM
+======================================== */
+
+:root {
+
+    --primary-color: #8B4A2F;
+    --secondary-color: #D97A7A;
+    --background-color: #F8F1E7;
+
+    --text-dark: #2D2D2D;
+    --text-light: #6B6B6B;
+
+    --white-color: #FFFFFF;
+
+}
+
+
+/* ========================================
+   GLOBAL STYLE
+======================================== */
+
+body {
+
+    font-family: 'SF Pro Display', sans-serif;
+
+    background-color: var(--background-color);
+
+    color: var(--text-dark);
+
+    margin: 0;
+    padding: 0;
+
+}
+
+
+/* ========================================
+   LINK STYLE
+======================================== */
+
+a {
+
+    text-decoration: none;
+
+    color: inherit;
+
+}
+
+
+/* ========================================
+   BUTTON CUSTOM
+======================================== */
+
+.btn-primary-custom {
+
+    background-color: var(--primary-color);
+
+    border: none;
+
+    color: var(--white-color);
+
+    transition: 0.3s ease;
+
+}
+
+.btn-primary-custom:hover {
+
+    background-color: var(--secondary-color);
+
+    color: var(--white-color);
+
+}
+
+
+/* ========================================
+   SECTION SPACING
+======================================== */
+
+.section-padding {
+
+    padding-top: 80px;
+
+    padding-bottom: 80px;
+
+}
+
+
+/* ========================================
+   TITLE SECTION
+======================================== */
+
+.section-title {
+
+    font-size: 2rem;
+
+    font-weight: 700;
+
+    margin-bottom: 15px;
+
+}
+
+.section-subtitle {
+
+    color: var(--text-light);
+
+    font-size: 1rem;
+
+}
+
+
+/* ========================================
+   CARD STYLE
+======================================== */
+
+.custom-card {
+
+    background-color: var(--white-color);
+
+    border: none;
+
+    border-radius: 20px;
+
+    transition: 0.3s ease;
+
+}
+
+.custom-card:hover {
+
+    transform: translateY(-5px);
+
+}
+
+
+/* ========================================
+   IMAGE RESPONSIVE
+======================================== */
+
+img {
+
+    max-width: 100%;
+
+    height: auto;
+
+}
+
+/* ========================================
+   TOPBAR
+======================================== */
+
+.topbar-wrapper {
+
+    background-color: #F1ECE5;
+
+    padding: 10px 0;
+
+    font-size: 14px;
+
+    border-bottom: 1px solid #E5DED5;
+
+}
+
+.topbar-wrapper a {
+
+    color: var(--text-dark);
+
+    transition: 0.3s ease;
+
+}
+
+.topbar-wrapper a:hover {
+
+    color: var(--primary-color);
+
+}
+
+.topbar-left i,
+.topbar-right i {
+
+    color: var(--primary-color);
+
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+.header-wrapper {
+
+    background-color: var(--white-color);
+
+    border-bottom: 1px solid #EFE7DD;
+
+}
+
+
+/* ========================================
+   BRAND LOGO
+======================================== */
+
+.brand-logo {
+
+    gap: 15px;
+
+    color: var(--primary-color);
+
+}
+
+.brand-icon {
+
+    width: 60px;
+    height: 60px;
+
+    border: 2px solid var(--primary-color);
+
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 26px;
+
+}
+
+.brand-text h2 {
+
+    margin: 0;
+
+    font-size: 2rem;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+}
+
+.brand-text span {
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+}
+
+
+/* ========================================
+   SEARCH BOX
+======================================== */
+
+.search-box {
+
+    display: flex;
+
+    background-color: var(--white-color);
+
+    border: 1px solid #DDD;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+}
+
+.search-category {
+
+    max-width: 220px;
+
+    border: none;
+
+    box-shadow: none !important;
+
+}
+
+.search-input {
+
+    border: none;
+
+    box-shadow: none !important;
+
+}
+
+.search-button {
+
+    background-color: var(--primary-color);
+
+    color: var(--white-color);
+
+    border: none;
+
+    padding: 0 25px;
+
+    transition: 0.3s ease;
+
+}
+
+.search-button:hover {
+
+    background-color: var(--secondary-color);
+
+}
+
+
+/* ========================================
+   HEADER RIGHT
+======================================== */
+
+.header-account,
+.header-cart {
+
+    color: var(--text-dark);
+
+    gap: 12px;
+
+}
+
+.header-icon {
+
+    font-size: 24px;
+
+    color: var(--primary-color);
+
+}
+
+.header-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+.header-info small {
+
+    font-size: 12px;
+
+    color: var(--text-light);
+
+}
+
+.header-info span {
+
+    font-weight: 500;
+
+}
+
+
+/* ========================================
+   CART BADGE
+======================================== */
+
+.cart-badge {
+
+    width: 22px;
+    height: 22px;
+
+    border-radius: 50%;
+
+    background-color: var(--primary-color);
+
+    color: var(--white-color);
+
+    font-size: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+
+    top: -10px;
+    right: -10px;
+
+}
+
+/* ========================================
+   NAVBAR
+======================================== */
+
+.navbar-main {
+
+    background-color: var(--primary-color);
+
+    padding: 14px 0;
+
+}
+
+
+/* ========================================
+   NAV LINK
+======================================== */
+
+.navbar-main .nav-link {
+
+    color: rgba(255, 255, 255, 0.85);
+
+    font-weight: 500;
+
+    transition: 0.3s ease;
+
+    position: relative;
+
+}
+
+
+/* Hover */
+.navbar-main .nav-link:hover {
+
+    color: var(--white-color);
+
+}
+
+
+/* Active */
+.navbar-main .nav-link.active {
+
+    color: var(--white-color);
+
+}
+
+
+/* Underline Hover */
+.navbar-main .nav-link::after {
+
+    content: '';
+
+    position: absolute;
+
+    left: 0;
+    bottom: -6px;
+
+    width: 0%;
+    height: 2px;
+
+    background-color: var(--white-color);
+
+    transition: 0.3s ease;
+
+}
+
+.navbar-main .nav-link:hover::after {
+
+    width: 100%;
+
+}
+
+.navbar-main .nav-link.active::after {
+
+    width: 100%;
+
+}
+
+
+/* ========================================
+   MOBILE TOGGLER
+======================================== */
+
+.navbar-toggler {
+
+    border: none;
+
+    box-shadow: none !important;
+
+}
+
+/* ========================================
+   HERO SECTION
+======================================== */
+
+.hero-section {
+
+    padding: 60px 0;
+
+}
+
+
+/* ========================================
+   HERO WRAPPER
+======================================== */
+
+.hero-wrapper {
+
+    background-color: var(--white-color);
+
+    border-radius: 30px;
+
+    padding: 70px;
+
+    overflow: hidden;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+
+}
+
+
+/* ========================================
+   HERO CONTENT
+======================================== */
+
+.hero-badge {
+
+    display: inline-block;
+
+    background-color: #F4E0D3;
+
+    color: var(--primary-color);
+
+    padding: 10px 18px;
+
+    border-radius: 999px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin-bottom: 25px;
+
+}
+
+.hero-title {
+
+    font-size: 3.5rem;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    margin-bottom: 25px;
+
+}
+
+.hero-title span {
+
+    color: var(--primary-color);
+
+}
+
+.hero-description {
+
+    font-size: 1.1rem;
+
+    color: var(--text-light);
+
+    line-height: 1.8;
+
+    margin-bottom: 35px;
+
+}
+
+
+/* ========================================
+   HERO BUTTON
+======================================== */
+
+.hero-button {
+
+    background-color: var(--primary-color);
+
+    color: var(--white-color);
+
+    padding: 16px 30px;
+
+    border-radius: 14px;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+
+}
+
+.hero-button:hover {
+
+    background-color: var(--secondary-color);
+
+    color: var(--white-color);
+
+}
+
+
+/* ========================================
+   HERO IMAGE
+======================================== */
+
+.hero-image img {
+
+    width: 100%;
+
+    border-radius: 25px;
+
+    object-fit: cover;
+
+}
