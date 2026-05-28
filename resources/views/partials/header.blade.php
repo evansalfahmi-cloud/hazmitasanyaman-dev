@@ -2,37 +2,47 @@
 
     <div class="container">
 
-        <div class="row align-items-center py-4">
+        <div class="header-inner">
 
             <!-- ======================================
                  LOGO
             ======================================= -->
-            <div class="col-lg-3">
+            <div class="header-logo">
 
-                <a href="/" class="brand-logo d-flex align-items-center">
+                <!-- Logo Image -->
+                <div class="logo-image">
 
-                    <div class="brand-icon">
+                    <img
+                        src="{{ asset('image/logo/logo.png') }}"
+                        alt="Hazmi Tas Anyaman"
+                    >
 
-                        <i class="fa-solid fa-bag-shopping"></i>
+                </div>
 
-                    </div>
+                <!-- Logo Text -->
+                <div class="logo-text">
 
-                    <div class="brand-text">
+                    <h2>
 
-                        <h2>HAZMI</h2>
+                        HAZMI
 
-                        <span>TAS ANYAMAN</span>
+                    </h2>
 
-                    </div>
+                    <span>
 
-                </a>
+                        TAS ANYAMAN
+
+                    </span>
+
+                </div>
 
             </div>
+
 
             <!-- ======================================
                  SEARCH BAR
             ======================================= -->
-            <div class="col-lg-6">
+            <div class="header-search">
 
                 <form action="#">
 
@@ -55,6 +65,7 @@
 
                         </select>
 
+
                         <!-- Input -->
                         <input
                             type="text"
@@ -62,12 +73,20 @@
                             placeholder="Cari produk, kategori, atau merek..."
                         >
 
+
                         <!-- Button -->
-                        <button type="submit" class="search-button">
+                        <button
+                            type="submit"
+                            class="search-button"
+                        >
 
                             <i class="fa-solid fa-magnifying-glass"></i>
 
-                            Cari
+                            <span>
+
+                                Cari
+
+                            </span>
 
                         </button>
 
@@ -77,63 +96,74 @@
 
             </div>
 
+
             <!-- ======================================
                  ACCOUNT & CART
             ======================================= -->
-            <div class="col-lg-3">
+            <div class="header-actions">
 
-                <div class="header-right d-flex justify-content-end align-items-center gap-4">
+                <!-- Account -->
+                <a
+                    href="#"
+                    class="header-account"
+                >
 
-                    <!-- Account -->
-                    <a href="#" class="header-account d-flex align-items-center">
+                    <div class="header-icon">
 
-                        <div class="header-icon">
+                        <i class="fa-regular fa-user"></i>
 
-                            <i class="fa-regular fa-user"></i>
+                    </div>
 
-                        </div>
+                    <div class="header-info">
 
-                        <div class="header-info">
+                        <small>
 
-                            <small>
-                                Masuk / Daftar
-                            </small>
+                            Masuk / Daftar
 
-                            <span>
-                                Akun Saya
-                            </span>
+                        </small>
 
-                        </div>
+                        <span>
 
-                    </a>
+                            Akun Saya
 
-                    <!-- Cart -->
-                    <a href="#" class="header-cart d-flex align-items-center position-relative">
+                        </span>
 
-                        <div class="header-icon">
+                    </div>
 
-                            <i class="fa-solid fa-cart-shopping"></i>
+                </a>
 
-                        </div>
 
-                        <div class="header-info">
+                <!-- Cart -->
+                <a
+                    href="#"
+                    class="header-cart position-relative"
+                >
 
-                            <span>
-                                Keranjang
-                            </span>
+                    <div class="header-icon">
 
-                        </div>
+                        <i class="fa-solid fa-cart-shopping"></i>
 
-                        <!-- Badge -->
-                        <div class="cart-badge">
+                    </div>
 
-                            0
+                    <div class="header-info">
 
-                        </div>
+                        <span>
 
-                    </a>
+                            Keranjang
 
-                </div>
+                        </span>
+
+                    </div>
+
+
+                    <!-- Badge -->
+                    <div class="cart-badge">
+
+                        0
+
+                    </div>
+
+                </a>
 
             </div>
 
