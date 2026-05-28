@@ -15,7 +15,7 @@
             aria-label="Toggle navigation"
         >
 
-            <i class="fa-solid fa-bars-staggered text-white"></i>
+            <i class="fa-solid fa-bars text-white"></i>
 
         </button>
 
