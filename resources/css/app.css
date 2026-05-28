@@ -1,3 +1,4 @@
+
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import '@fortawesome/fontawesome-free/css/all.min.css';
 
@@ -7,21 +8,33 @@
 ======================================== */
 
 @font-face {
+
     font-family: 'SF Pro Display';
+
     src: url('/fonts/SF-Pro-Display-Regular.otf') format('opentype');
+
     font-weight: 400;
+
 }
 
 @font-face {
+
     font-family: 'SF Pro Display';
+
     src: url('/fonts/SF-Pro-Display-Medium.otf') format('opentype');
+
     font-weight: 500;
+
 }
 
 @font-face {
+
     font-family: 'SF Pro Display';
+
     src: url('/fonts/SF-Pro-Display-Bold.otf') format('opentype');
+
     font-weight: 700;
+
 }
 
 
@@ -32,11 +45,13 @@
 :root {
 
     --primary-color: #8B4A2F;
-    --secondary-color: #D97A7A;
+
+    --secondary-color: #A45A39;
 
     --background-color: #F8F1E7;
 
     --text-dark: #2D2D2D;
+
     --text-light: #6B6B6B;
 
     --white-color: #FFFFFF;
@@ -57,6 +72,7 @@ body {
     color: var(--text-dark);
 
     margin: 0;
+
     padding: 0;
 
 }
@@ -136,7 +152,7 @@ img {
 
     gap: 30px;
 
-    padding: 30px 0;
+    padding: 25px 0;
 
 }
 
@@ -167,7 +183,7 @@ img {
 
 .logo-text {
 
-    margin-left: 15px;
+    margin-left: 14px;
 
 }
 
@@ -189,7 +205,7 @@ img {
 
 .logo-text span {
 
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 
     letter-spacing: 4px;
 
@@ -216,6 +232,10 @@ img {
 
     align-items: center;
 
+    width: 100%;
+
+    height: 46px;
+
     background-color: var(--white-color);
 
     border: 1px solid #DDD;
@@ -228,7 +248,11 @@ img {
 
 .search-category {
 
-    width: 230px;
+    width: 220px;
+
+    min-width: 220px;
+
+    height: 46px;
 
     border: none;
 
@@ -236,17 +260,29 @@ img {
 
     box-shadow: none !important;
 
-    padding: 14px 18px;
+    padding: 0 16px;
+
+    font-size: 14px;
+
+    background-color: transparent;
 
 }
 
 .search-input {
 
+    flex: 1;
+
+    height: 46px;
+
     border: none;
 
     box-shadow: none !important;
 
-    padding: 14px 20px;
+    padding: 0 18px;
+
+    font-size: 14px;
+
+    background-color: transparent;
 
 }
 
@@ -258,9 +294,11 @@ img {
 
     border: none;
 
+    height: 46px;
+
     min-width: 110px;
 
-    height: 54px;
+    padding: 0 22px;
 
     display: flex;
 
@@ -270,9 +308,13 @@ img {
 
     gap: 8px;
 
+    font-size: 14px;
+
     font-weight: 600;
 
     transition: 0.3s ease;
+
+    flex-shrink: 0;
 
 }
 
@@ -293,7 +335,7 @@ img {
 
     align-items: center;
 
-    gap: 30px;
+    gap: 28px;
 
     flex-shrink: 0;
 
@@ -347,6 +389,7 @@ img {
 .cart-badge {
 
     width: 22px;
+
     height: 22px;
 
     border-radius: 50%;
@@ -366,6 +409,7 @@ img {
     position: absolute;
 
     top: -10px;
+
     right: -10px;
 
 }
@@ -409,6 +453,7 @@ img {
     position: absolute;
 
     left: 0;
+
     bottom: -6px;
 
     width: 0;
@@ -438,7 +483,7 @@ img {
 
 
 /* ========================================
-   HERO SECTION
+   HERO
 ======================================== */
 
 .hero-section {
@@ -453,7 +498,7 @@ img {
 
     border-radius: 30px;
 
-    padding: 70px;
+    padding: 60px;
 
     overflow: hidden;
 
@@ -483,7 +528,7 @@ img {
 
 .hero-title {
 
-    font-size: 3.5rem;
+    font-size: 3.2rem;
 
     font-weight: 700;
 
@@ -527,9 +572,7 @@ img {
 
     width: 100%;
 
-    border-radius: 25px;
-
-    object-fit: cover;
+    object-fit: contain;
 
 }
 
@@ -560,11 +603,20 @@ img {
 
     box-shadow: 0 10px 30px rgba(0,0,0,0.04);
 
+    transition: 0.3s ease;
+
+}
+
+.category-card:hover {
+
+    transform: translateY(-5px);
+
 }
 
 .category-icon {
 
     width: 80px;
+
     height: 80px;
 
     border-radius: 20px;
@@ -585,7 +637,7 @@ img {
 
 
 /* ========================================
-   PRODUCT
+   PRODUCTS
 ======================================== */
 
 .featured-products-section {
@@ -606,6 +658,14 @@ img {
 
     height: 100%;
 
+    transition: 0.3s ease;
+
+}
+
+.product-card:hover {
+
+    transform: translateY(-6px);
+
 }
 
 .product-image {
@@ -622,7 +682,7 @@ img {
 
     object-fit: contain;
 
-    padding: 15px;
+    padding: 18px;
 
 }
 
@@ -631,6 +691,7 @@ img {
     position: absolute;
 
     top: 15px;
+
     left: 15px;
 
     background-color: var(--primary-color);
@@ -795,13 +856,13 @@ img {
 
     .hero-wrapper {
 
-        padding: 30px;
+        padding: 35px;
 
     }
 
     .hero-title {
 
-        font-size: 2.2rem;
+        font-size: 2.3rem;
 
     }
 
@@ -827,31 +888,105 @@ img {
 
 @media (max-width: 576px) {
 
+    .header-inner {
+
+        gap: 20px;
+
+    }
+
+    .header-logo {
+
+        justify-content: center;
+
+    }
+
+    .logo-image img {
+
+        width: 55px;
+
+        height: 55px;
+
+    }
+
+    .logo-text h2 {
+
+        font-size: 1.6rem;
+
+    }
+
+    .logo-text span {
+
+        font-size: 0.7rem;
+
+        letter-spacing: 3px;
+
+    }
+
     .search-box {
 
-        flex-direction: column;
+        height: 44px;
 
     }
 
     .search-category {
 
-        width: 100%;
+        width: 120px;
 
-        border-right: none;
+        min-width: 120px;
 
-        border-bottom: 1px solid #EEE;
+        height: 44px;
+
+        padding: 0 10px;
+
+        font-size: 12px;
 
     }
 
     .search-input {
 
-        width: 100%;
+        height: 44px;
+
+        padding: 0 12px;
+
+        font-size: 12px;
 
     }
 
     .search-button {
 
-        width: 100%;
+        height: 44px;
+
+        min-width: 70px;
+
+        padding: 0 14px;
+
+        font-size: 12px;
+
+    }
+
+    .header-actions {
+
+        justify-content: center;
+
+        gap: 18px;
+
+    }
+
+    .header-info small {
+
+        font-size: 10px;
+
+    }
+
+    .header-info span {
+
+        font-size: 13px;
+
+    }
+
+    .hero-wrapper {
+
+        padding: 25px;
 
     }
 
@@ -862,3 +997,4 @@ img {
     }
 
 }
+
