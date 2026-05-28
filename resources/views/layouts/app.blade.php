@@ -7,6 +7,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
+    <!-- Favicon -->
+    <link
+        rel="icon"
+        type="image/png"
+        href="{{ asset('image/logo/logo.png') }}"
+    >
+
     {{-- Title --}}
     <title>@yield('title', 'Hazmi Tas Anyaman')</title>
 

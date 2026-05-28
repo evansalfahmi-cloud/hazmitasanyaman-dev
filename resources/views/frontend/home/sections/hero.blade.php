@@ -60,7 +60,7 @@
                     <div class="hero-image">
 
                         <img
-                            src="{{ asset('image/products/img-hero.jpg') }}"
+                            src="{{ asset('image/products/hero-img.png') }}"
                             alt="Hazmi Tas Anyaman"
                             class="img-fluid hero-image"
                         >
