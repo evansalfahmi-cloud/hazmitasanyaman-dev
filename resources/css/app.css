@@ -278,6 +278,8 @@ img {
 
     display: flex;
 
+    align-items: center;
+
     background-color: var(--white-color);
 
     border: 1px solid #DDD;
@@ -288,15 +290,31 @@ img {
 
 }
 
+
+/* ========================================
+   CATEGORY SELECT
+======================================== */
+
 .search-category {
 
     max-width: 220px;
 
     border: none;
 
+    border-right: 1px solid #EEE;
+
     box-shadow: none !important;
 
+    padding-left: 18px;
+
+    font-size: 15px;
+
 }
+
+
+/* ========================================
+   SEARCH INPUT
+======================================== */
 
 .search-input {
 
@@ -304,7 +322,16 @@ img {
 
     box-shadow: none !important;
 
+    padding: 0 20px;
+
+    font-size: 15px;
+
 }
+
+
+/* ========================================
+   SEARCH BUTTON
+======================================== */
 
 .search-button {
 
@@ -314,7 +341,19 @@ img {
 
     border: none;
 
-    padding: 0 25px;
+    min-width: 95px;
+
+    padding: 12px 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    font-weight: 500;
 
     transition: 0.3s ease;
 
@@ -325,7 +364,6 @@ img {
     background-color: var(--secondary-color);
 
 }
-
 
 /* ========================================
    HEADER RIGHT
