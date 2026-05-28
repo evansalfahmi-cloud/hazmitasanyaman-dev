@@ -208,6 +208,20 @@ img {
 }
 
 /* ========================================
+   MOBILE TOPBAR
+======================================== */
+
+@media (max-width: 768px) {
+
+    .topbar-wrapper {
+
+        display: none;
+
+    }
+
+}
+
+/* ========================================
    HEADER
 ======================================== */
 
@@ -216,6 +230,38 @@ img {
     background-color: var(--white-color);
 
     border-bottom: 1px solid #EFE7DD;
+
+}
+
+/* ========================================
+   MOBILE HEADER
+======================================== */
+
+@media (max-width: 991px) {
+
+    .header-wrapper .row {
+
+        gap: 20px;
+
+    }
+
+    .brand-logo {
+
+        justify-content: center;
+
+    }
+
+    .search-box {
+
+        width: 100%;
+
+    }
+
+    .header-right {
+
+        justify-content: center !important;
+
+    }
 
 }
 
@@ -514,6 +560,38 @@ img {
 
 }
 
+/* ========================================
+   MOBILE NAVBAR
+======================================== */
+
+@media (max-width: 991px) {
+
+    .navbar-main .navbar-collapse {
+
+        background-color: var(--primary-color);
+
+        padding: 20px;
+
+        margin-top: 15px;
+
+        border-radius: 14px;
+
+    }
+
+    .navbar-main .navbar-nav {
+
+        gap: 10px !important;
+
+    }
+
+    .navbar-main .nav-link {
+
+        padding: 10px 0;
+
+    }
+
+}
+
 
 /* ========================================
    MOBILE TOGGLER
@@ -608,6 +686,32 @@ img {
     line-height: 1.8;
 
     margin-bottom: 35px;
+
+}
+
+/* ========================================
+   MOBILE HERO
+======================================== */
+
+@media (max-width: 991px) {
+
+    .hero-wrapper {
+
+        padding: 30px;
+
+    }
+
+    .hero-title {
+
+        font-size: 2.2rem;
+
+    }
+
+    .hero-image {
+
+        margin-top: 30px;
+
+    }
 
 }
 
