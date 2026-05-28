@@ -160,7 +160,7 @@
 
                         <i class="fa-solid fa-location-dot me-2"></i>
 
-                        Lampung, Indonesia
+                        Magetan, Jawa Timur, Indonesia
 
                     </p>
 
