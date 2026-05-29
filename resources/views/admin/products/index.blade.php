@@ -20,7 +20,7 @@
 
     <a
         href="{{ route('admin.products.create') }}"
-        class="btn btn-dark"
+        class="btn btn-hazmi"
     >
         <i class="fa-solid fa-plus me-2"></i>
         Tambah Produk
