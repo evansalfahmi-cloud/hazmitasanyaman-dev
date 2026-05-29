@@ -6,149 +6,123 @@
 
 <div class="d-flex justify-content-between align-items-center mb-4">
 
-    <div>
-        <h1 class="fw-bold mb-1">
-            Tambah Produk
-        </h1>
 
-        <p class="text-muted mb-0">
-            Tambahkan produk baru ke katalog Hazmi
-        </p>
-    </div>
+<div>
+    <h1 class="fw-bold mb-1">
+        Tambah Produk
+    </h1>
 
-        <a
-            href="{{ route('admin.products.index') }}"
-            class="btn btn-outline-hazmi"
-        >
-        <i class="fa-solid fa-arrow-left me-2"></i>
-        Kembali
-    </a>
+    <p class="text-muted mb-0">
+        Tambahkan produk baru ke katalog Hazmi
+    </p>
+</div>
+
+<a
+    href="{{ route('admin.products.index') }}"
+    class="btn btn-outline-hazmi"
+>
+    <i class="fa-solid fa-arrow-left me-2"></i>
+    Kembali
+</a>
 
 </div>
 
 <div class="card border-0 shadow-sm">
 
-    <div class="card-body p-4">
+<div class="card-body p-4">
 
-        <form>
+    <form
+        action="{{ route('admin.products.store') }}"
+        method="POST"
+    >
+        @csrf
 
-            <div class="row">
+        <div class="row">
 
-                <div class="col-md-8">
+            <div class="col-md-8">
 
-                    <div class="mb-3">
+                <div class="mb-3">
 
-                        <label class="form-label fw-semibold">
-                            Nama Produk
-                        </label>
+                    <label class="form-label fw-semibold">
+                        Nama Produk
+                    </label>
 
-                        <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Masukkan nama produk"
-                        >
-
-                    </div>
-
-                </div>
-
-                <div class="col-md-4">
-
-                    <div class="mb-3">
-
-                        <label class="form-label fw-semibold">
-                            Kategori
-                        </label>
-
-                        <select class="form-select">
-
-                            @foreach($categories as $category)
-
-                                <option value="{{ $category->id }}">
-                                    {{ $category->name }}
-                                </option>
-
-                            @endforeach
-
-                        </select>
-
-                    </div>
+                    <input
+                        type="text"
+                        name="title"
+                        class="form-control"
+                        placeholder="Masukkan nama produk"
+                    >
 
                 </div>
 
             </div>
 
-            <div class="mb-3">
+            <div class="col-md-4">
 
-                <label class="form-label fw-semibold">
-                    Deskripsi Produk
-                </label>
+                <div class="mb-3">
 
-                <textarea
-                    rows="5"
-                    class="form-control"
-                    placeholder="Deskripsi produk..."
-                ></textarea>
+                    <label class="form-label fw-semibold">
+                        Kategori
+                    </label>
 
-            </div>
+                    <select
+                        name="category_id"
+                        class="form-select"
+                    >
 
-            <div class="row">
+                        @foreach($categories as $category)
 
-                <div class="col-md-4">
+                            <option value="{{ $category->id }}">
+                                {{ $category->name }}
+                            </option>
 
-                    <div class="mb-3">
+                        @endforeach
 
-                        <label class="form-label fw-semibold">
-                            Harga
-                        </label>
-
-                        <div class="input-group">
-
-                            <span class="input-group-text">
-                                Rp
-                            </span>
-
-                            <input
-                                type="number"
-                                class="form-control"
-                                placeholder="250000"
-                            >
-
-                        </div>
-
-                    </div>
+                    </select>
 
                 </div>
 
-                <div class="col-md-4">
+            </div>
 
-                    <div class="mb-3">
+        </div>
 
-                        <label class="form-label fw-semibold">
-                            Stok
-                        </label>
+        <div class="mb-3">
+
+            <label class="form-label fw-semibold">
+                Deskripsi Produk
+            </label>
+
+            <textarea
+                name="description"
+                rows="5"
+                class="form-control"
+                placeholder="Deskripsi produk..."
+            ></textarea>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-4">
+
+                <div class="mb-3">
+
+                    <label class="form-label fw-semibold">
+                        Harga
+                    </label>
+
+                    <div class="input-group">
+
+                        <span class="input-group-text">
+                            Rp
+                        </span>
 
                         <input
                             type="number"
+                            name="price"
                             class="form-control"
-                            placeholder="10"
-                        >
-
-                    </div>
-
-                </div>
-
-                <div class="col-md-4">
-
-                    <div class="mb-3">
-
-                        <label class="form-label fw-semibold">
-                            Gambar Produk
-                        </label>
-
-                        <input
-                            type="file"
-                            class="form-control"
+                            placeholder="250000"
                         >
 
                     </div>
@@ -157,42 +131,82 @@
 
             </div>
 
-            <div class="row">
+            <div class="col-md-4">
 
-                <div class="col-md-6">
+                <div class="mb-3">
 
-                    <div class="form-check form-switch">
+                    <label class="form-label fw-semibold">
+                        Stok
+                    </label>
 
-                        <input
-                            class="form-check-input"
-                            type="checkbox"
-                        >
-
-                        <label class="form-check-label">
-                            Produk Unggulan
-                        </label>
-
-                    </div>
-
-                </div>
-
-                <div class="col-md-6 text-md-end">
-
-                    <button
-                        type="submit"
-                        class="btn btn-hazmi px-4"
+                    <input
+                        type="number"
+                        name="stock"
+                        class="form-control"
+                        placeholder="10"
                     >
-                        <i class="fa-solid fa-floppy-disk me-2"></i>
-                        Simpan Produk
-                    </button>
 
                 </div>
 
             </div>
 
-        </form>
+            <div class="col-md-4">
 
-    </div>
+                <div class="mb-3">
+
+                    <label class="form-label fw-semibold">
+                        Gambar Produk
+                    </label>
+
+                    <input
+                        type="file"
+                        class="form-control"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <div class="form-check form-switch">
+
+                    <input
+                        class="form-check-input"
+                        type="checkbox"
+                        name="is_featured"
+                        value="1"
+                    >
+
+                    <label class="form-check-label">
+                        Produk Unggulan
+                    </label>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6 text-md-end">
+
+                <button
+                    type="submit"
+                    class="btn btn-hazmi px-4"
+                >
+                    <i class="fa-solid fa-floppy-disk me-2"></i>
+                    Simpan Produk
+                </button>
+
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
 
 </div>
 
