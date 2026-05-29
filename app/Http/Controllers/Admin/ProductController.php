@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Category;
 
 class ProductController extends Controller
 {
@@ -14,5 +16,15 @@ class ProductController extends Controller
             ->get();
 
         return view('admin.products.index', compact('products'));
+    }
+
+    public function create()
+    {
+        $categories = Category::all();
+
+        return view(
+            'admin.products.create',
+            compact('categories')
+        );
     }
 }
