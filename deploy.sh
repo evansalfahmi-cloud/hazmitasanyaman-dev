@@ -18,6 +18,7 @@ rsync -av --delete \
 --exclude=.git \
 --exclude=tests \
 --exclude=storage \
+--exclude=bootstrap/cache \
 --exclude=.env \
 /var/www/hazmitasanyaman_dev/ \
 /var/www/hazmitasanyaman/
@@ -32,4 +33,4 @@ php artisan optimize:clear
 
 echo "=================================="
 echo "DEPLOY COMPLETE!"
-echo "=================================="
+echo "================a=================="
