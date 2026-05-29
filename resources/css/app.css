@@ -67,6 +67,8 @@ body {
 
     font-family: 'SF Pro Display', sans-serif;
 
+    font-weight: 500;
+
     background-color: var(--background-color);
 
     color: var(--text-dark);
@@ -74,6 +76,24 @@ body {
     margin: 0;
 
     padding: 0;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+    font-weight: 700;
+
+}
+
+strong,
+b {
+
+    font-weight: 700;
 
 }
 
@@ -431,7 +451,7 @@ img {
 
     color: rgba(255,255,255,0.85);
 
-    font-weight: 500;
+    font-weight: 600;
 
     position: relative;
 
@@ -551,7 +571,7 @@ img {
     line-height: 1.8;
 
     margin-bottom: 35px;
-
+    font-weight: 500;
 }
 
 .hero-button {
@@ -1051,6 +1071,7 @@ img {
     color: #777;
     font-size: 14px;
     margin-bottom: 0;
+    font-weight: 500;
 }
 
 /* ==========================================
