@@ -1336,3 +1336,30 @@ img {
     background-color: var(--primary-color);
     color: #fff;
 }
+
+.badge-hazmi {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: .45rem .75rem;
+    border-radius: 999px;
+    font-size: .75rem;
+}
+
+.badge-hazmi-soft {
+    background-color: #f2e4da;
+    color: var(--primary-color);
+    padding: .45rem .75rem;
+    border-radius: 999px;
+    font-size: .75rem;
+}
+
+.btn-hazmi-outline {
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    background: transparent;
+}
+
+.btn-hazmi-outline:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
