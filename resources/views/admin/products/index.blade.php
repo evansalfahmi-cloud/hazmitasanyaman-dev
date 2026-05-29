@@ -201,19 +201,29 @@
 
                             <div class="d-flex gap-2">
 
-                                <button
-                                    type="button"
+                                <a
+                                    href="{{ route('admin.products.edit', $product) }}"
                                     class="btn btn-sm btn-hazmi-outline"
                                 >
                                     <i class="fa-solid fa-pen"></i>
-                                </button>
+                                </a>
 
-                                <button
-                                    type="button"
-                                    class="btn btn-sm btn-outline-danger"
+                               <form action="{{ route('admin.products.destroy', $product) }}"
+                                    method="POST"
+                                    class="d-inline"
+                                    onsubmit="return confirm('Yakin ingin menghapus produk ini?')"
                                 >
-                                    <i class="fa-solid fa-trash"></i>
-                                </button>
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button
+                                        type="submit"
+                                        class="btn btn-outline-danger btn-sm"
+                                    >
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+
+                                </form>
 
                             </div>
 

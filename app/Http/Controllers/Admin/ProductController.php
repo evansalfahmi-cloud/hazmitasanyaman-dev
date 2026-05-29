@@ -55,4 +55,48 @@ class ProductController extends Controller
             ->route('admin.products.index')
             ->with('success', 'Produk berhasil ditambahkan');
     }
+
+    public function edit(Product $product)
+    {
+        $categories = Category::all();
+
+        return view(
+            'admin.products.edit',
+            compact('product', 'categories')
+        );
+    }
+
+    public function update(Request $request, Product $product)
+    {
+        $product->update([
+
+            'category_id' => $request->category_id,
+
+            'title' => $request->title,
+
+            'slug' => Str::slug($request->title),
+
+            'description' => $request->description,
+
+            'price' => $request->price,
+
+            'stock' => $request->stock,
+
+            'is_featured' => $request->has('is_featured'),
+
+        ]);
+
+        return redirect()
+            ->route('admin.products.index')
+            ->with('success', 'Produk berhasil diperbarui');
+    }
+
+    public function destroy(Product $product)
+    {
+        $product->delete();
+
+        return redirect()
+            ->route('admin.products.index')
+            ->with('success', 'Produk berhasil dihapus');
+    }
 }
