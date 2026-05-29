@@ -21,6 +21,9 @@ Route::middleware(['auth'])
         Route::get('/products/create', [ProductController::class, 'create'])
             ->name('admin.products.create');
 
+        Route::post('/products', [ProductController::class, 'store'])
+            ->name('admin.products.store');
+
     });
 
 require __DIR__.'/auth.php';

@@ -87,27 +87,27 @@
 
                         <td>
 
-                            @if($product->image)
+                @if($product->image)
 
-                                <img
-                                    src="{{ asset('storage/' . $product->image) }}"
-                                    alt="{{ $product->title }}"
-                                    class="rounded border"
-                                    width="60"
-                                    height="60"
-                                    style="object-fit: cover;"
-                                >
+                    <img
+                        src="{{ asset('storage/' . $product->image) }}"
+                        alt="{{ $product->title }}"
+                        class="rounded border"
+                        width="60"
+                        height="60"
+                        style="object-fit: cover;"
+                    >
 
-                            @else
+                @else
 
-                                <div
-                                    class="bg-light border rounded d-flex align-items-center justify-content-center"
-                                    style="width:60px;height:60px;"
-                                >
-                                    <i class="fa-solid fa-image text-muted"></i>
-                                </div>
+                    <div
+                        class="bg-light border rounded d-flex align-items-center justify-content-center"
+                        style="width:60px;height:60px;"
+                    >
+                        <i class="fa-solid fa-bag-shopping text-muted"></i>
+                    </div>
 
-                            @endif
+                @endif
 
                         </td>
 
