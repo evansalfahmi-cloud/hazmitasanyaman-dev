@@ -1,4 +1,4 @@
-<div class="p-4 text-center border-bottom">
+<div class="p-4 text-center border-bottom border-light-subtle">
 
     <img
         src="{{ asset('image/logo/logo.png') }}"
@@ -11,7 +11,7 @@
         Admin Panel
     </h5>
 
-    <small class="text-light">
+    <small class="text-white-50">
         Hazmi Tas Anyaman
     </small>
 
@@ -21,7 +21,7 @@
 
     <a
         href="{{ route('admin.dashboard') }}"
-        class="nav-link text-white py-3"
+        class="nav-link py-3 {{ request()->routeIs('admin.dashboard') ? 'active' : 'text-white' }}"
     >
         <i class="fa-solid fa-gauge-high me-2"></i>
         Dashboard
@@ -75,7 +75,7 @@
         Pengguna
     </a>
 
-    <hr class="border-light">
+    <hr class="border-light opacity-50 my-3">
 
     <form
         action="{{ route('logout') }}"

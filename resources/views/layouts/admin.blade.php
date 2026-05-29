@@ -23,8 +23,7 @@
     <div class="row min-vh-100">
 
         {{-- Sidebar --}}
-        <div class="col-lg-2 col-md-3 bg-dark text-white p-0">
-
+        <div class="col-lg-2 col-md-3 sidebar p-0">
             <div class="p-3 text-center border-bottom">
 
                 <img
@@ -34,7 +33,7 @@
                     alt="Hazmi"
                 >
 
-                <h5 class="mb-0">
+                <h5 class="mb-0 text-white">
                     Admin Panel
                 </h5>
 

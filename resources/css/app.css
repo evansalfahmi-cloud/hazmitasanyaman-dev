@@ -1221,3 +1221,94 @@ img {
         padding: 12px;
     }
 }
+
+/* ======================================
+   ADMIN SIDEBAR
+====================================== */
+
+.sidebar {
+    background-color: var(--primary-color);
+    min-height: 100vh;
+}
+
+.sidebar .nav-link {
+    color: var(--white-color);
+    border-radius: 10px;
+    padding: 12px 15px;
+    margin-bottom: 5px;
+    transition: all .3s ease;
+}
+
+.sidebar .nav-link:hover {
+    background-color: rgba(255,255,255,.15);
+}
+
+.sidebar .nav-link.active {
+    background-color: var(--white-color);
+    color: var(--primary-color) !important;
+    font-weight: 600;
+}
+
+.sidebar .nav-link i {
+    width: 22px;
+    text-align: center;
+}
+
+.admin-content {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+}
+
+/* ======================================
+   TABLET
+====================================== */
+
+@media (max-width: 991.98px) {
+
+    .sidebar {
+        min-height: auto;
+    }
+
+}
+
+/* ======================================
+   MOBILE
+====================================== */
+
+@media (max-width: 767.98px) {
+
+    .sidebar {
+
+        min-height: auto;
+
+        position: relative;
+
+    }
+
+    .sidebar .nav {
+
+        flex-direction: column !important;
+
+    }
+
+    .sidebar .nav-link {
+
+        width: 100%;
+
+        text-align: left;
+
+        padding: 12px 15px;
+
+    }
+
+    .sidebar .nav-link i {
+
+        display: inline-block;
+
+        width: 22px;
+
+        margin-bottom: 0;
+
+    }
+
+}
