@@ -1,22 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Admin\DashboardController;
-
-/*
-|--------------------------------------------------------------------------
-| FRONTEND
-|--------------------------------------------------------------------------
-*/
+use App\Http\Controllers\Admin\ProductController;
 
 Route::get('/', [HomeController::class, 'index']);
-
-/*
-|--------------------------------------------------------------------------
-| ADMIN
-|--------------------------------------------------------------------------
-*/
 
 Route::middleware(['auth'])
     ->prefix('admin')
@@ -25,12 +15,12 @@ Route::middleware(['auth'])
         Route::get('/dashboard', [DashboardController::class, 'index'])
             ->name('admin.dashboard');
 
-    });
+        Route::get('/products', [ProductController::class, 'index'])
+            ->name('admin.products.index');
 
-/*
-|--------------------------------------------------------------------------
-| AUTH
-|--------------------------------------------------------------------------
-*/
+        Route::get('/products/create', [ProductController::class, 'create'])
+            ->name('admin.products.create');
+
+    });
 
 require __DIR__.'/auth.php';
