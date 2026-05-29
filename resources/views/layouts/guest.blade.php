@@ -1,3 +1,4 @@
+```php
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -26,29 +27,15 @@
 
 </head>
 
-<body
-    style="
-        background-color:#F6F1E9;
-        font-family:'Figtree',sans-serif;
-    "
->
+<body class="hazmi-login-page">
 
     <div class="container">
 
-        <div
-            class="row justify-content-center align-items-center"
-            style="min-height:100vh;"
-        >
+        <div class="row justify-content-center align-items-center hazmi-login-wrapper">
 
-            <div class="col-lg-4 col-md-6">
+            <div class="col-xl-4 col-lg-5 col-md-7 col-sm-10">
 
-                <div
-                    class="card border-0 shadow-lg"
-                    style="
-                        border-radius:24px;
-                        overflow:hidden;
-                    "
-                >
+                <div class="card shadow-lg hazmi-login-card">
 
                     <div class="card-body p-5">
 
@@ -60,30 +47,27 @@
                                 <img
                                     src="{{ asset('image/logo/logo.png') }}"
                                     alt="Hazmi Tas Anyaman"
-                                    style="
-                                        width:90px;
-                                        height:auto;
-                                    "
+                                    class="hazmi-login-logo"
                                 >
 
                             </a>
 
-                            <h2
-                                class="fw-bold mt-3 mb-1"
-                                style="color:#9B5A3C;"
-                            >
+                            <h2 class="hazmi-login-title mt-3 mb-1">
+
                                 HAZMI
+
                             </h2>
 
-                            <p
-                                class="mb-0"
-                                style="
-                                    color:#B67C5A;
-                                    letter-spacing:4px;
-                                    font-size:14px;
-                                "
-                            >
+                            <p class="hazmi-login-subtitle">
+
                                 TAS ANYAMAN
+
+                            </p>
+
+                            <p class="hazmi-login-description">
+
+                                Silakan login untuk mengakses dashboard admin
+
                             </p>
 
                         </div>
@@ -104,3 +88,4 @@
 </body>
 
 </html>
+```

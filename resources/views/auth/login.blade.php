@@ -1,6 +1,6 @@
 <x-guest-layout>
 
-    <form method="POST" action="{{ route('login') }}">
+    <form method="POST" action="{{ route('login') }}" class="hazmi-login-form">
 
         @csrf
 
@@ -9,8 +9,7 @@
 
             <label
                 for="email"
-                class="form-label fw-semibold"
-                style="color:#5C3A2E;"
+                class="form-label fw-semibold hazmi-login-label"
             >
                 Email
             </label>
@@ -20,7 +19,7 @@
                 type="email"
                 name="email"
                 value="{{ old('email') }}"
-                class="form-control"
+                class="form-control hazmi-login-input"
                 required
                 autofocus
             >
@@ -38,8 +37,7 @@
 
             <label
                 for="password"
-                class="form-label fw-semibold"
-                style="color:#5C3A2E;"
+                class="form-label fw-semibold hazmi-login-label"
             >
                 Password
             </label>
@@ -48,7 +46,7 @@
                 id="password"
                 type="password"
                 name="password"
-                class="form-control"
+                class="form-control hazmi-login-input"
                 required
             >
 
@@ -71,7 +69,7 @@
             >
 
             <label
-                class="form-check-label"
+                class="form-check-label hazmi-login-remember"
                 for="remember_me"
             >
                 Remember Me
@@ -80,14 +78,13 @@
         </div>
 
         <!-- Action -->
-        <div class="d-flex justify-content-between align-items-center">
+        <div class="hazmi-login-action">
 
             @if (Route::has('password.request'))
 
                 <a
                     href="{{ route('password.request') }}"
-                    class="text-decoration-none"
-                    style="color:#9B5A3C;"
+                    class="hazmi-forgot-password"
                 >
                     Lupa Password?
                 </a>
@@ -96,8 +93,7 @@
 
             <button
                 type="submit"
-                class="btn text-white"
-                style="background-color:#9B5A3C;"
+                class="btn hazmi-login-button"
             >
                 Login
             </button>
