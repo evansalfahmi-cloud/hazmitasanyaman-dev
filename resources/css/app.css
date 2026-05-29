@@ -1326,3 +1326,13 @@ img {
     border-color: var(--secondary-color);
     color: #fff;
 }
+
+.btn-outline-hazmi {
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline-hazmi:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}

@@ -16,10 +16,10 @@
         </p>
     </div>
 
-    <a
-        href="{{ route('admin.products.index') }}"
-        class="btn btn-outline-secondary"
-    >
+        <a
+            href="{{ route('admin.products.index') }}"
+            class="btn btn-outline-hazmi"
+        >
         <i class="fa-solid fa-arrow-left me-2"></i>
         Kembali
     </a>
