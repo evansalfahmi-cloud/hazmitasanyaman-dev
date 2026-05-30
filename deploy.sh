@@ -20,6 +20,7 @@ rsync -av --delete \
 --exclude=storage \
 --exclude=bootstrap/cache \
 --exclude=.env \
+--exclude=public/image/products \
 /var/www/hazmitasanyaman_dev/ \
 /var/www/hazmitasanyaman/
 

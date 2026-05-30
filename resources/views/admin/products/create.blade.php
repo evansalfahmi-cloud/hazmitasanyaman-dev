@@ -34,6 +34,7 @@
     <form
         action="{{ route('admin.products.store') }}"
         method="POST"
+        enctype="multipart/form-data"
     >
         @csrf
 
@@ -160,6 +161,7 @@
 
                     <input
                         type="file"
+                        name="image"
                         class="form-control"
                     >
 

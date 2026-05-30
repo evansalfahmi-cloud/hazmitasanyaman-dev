@@ -108,7 +108,7 @@
                 @if($product->image)
 
                     <img
-                        src="{{ asset('storage/' . $product->image) }}"
+                        src="{{ asset('image/products/' . $product->image) }}"
                         alt="{{ $product->title }}"
                         class="rounded border"
                         width="60"
@@ -126,7 +126,6 @@
                     </div>
 
                 @endif
-
                         </td>
 
                         <td>
