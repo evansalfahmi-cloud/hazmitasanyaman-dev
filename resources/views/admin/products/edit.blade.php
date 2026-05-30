@@ -35,7 +35,7 @@
 
 <div class="card-body p-4">
 
-    <<form
+    <form
         action="{{ route('admin.products.update', $product) }}"
         method="POST"
         enctype="multipart/form-data"
