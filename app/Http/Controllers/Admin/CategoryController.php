@@ -68,6 +68,16 @@ class CategoryController extends Controller
 
     public function destroy(Category $category)
     {
+        if ($category->products()->count() > 0) {
+
+            return redirect()
+                ->route('admin.categories.index')
+                ->with(
+                    'error',
+                    'Kategori tidak dapat dihapus karena masih memiliki produk.'
+                );
+        }
+
         $category->delete();
 
         return redirect()

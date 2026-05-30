@@ -28,15 +28,33 @@
 
 @if(session('success'))
 
-<div class="alert alert-success alert-dismissible fade show">
-    {{ session('success') }}
+    <div class="alert alert-success alert-dismissible fade show">
 
-    <button
-        type="button"
-        class="btn-close"
-        data-bs-dismiss="alert"
-    ></button>
-</div>
+        {{ session('success') }}
+
+        <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+        ></button>
+
+    </div>
+
+@endif
+
+@if(session('error'))
+
+    <div class="alert alert-danger alert-dismissible fade show">
+
+        {{ session('error') }}
+
+        <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+        ></button>
+
+    </div>
 
 @endif
 
@@ -62,71 +80,74 @@
 
                 @forelse($categories as $category)
 
-                <tr>
+                    <tr>
 
-                    <td>
-                        {{ $category->id }}
-                    </td>
+                        <td>
+                            {{ $category->id }}
+                        </td>
 
-                    <td>
-                        <strong>
-                            {{ $category->name }}
-                        </strong>
-                    </td>
+                        <td>
+                            <strong>
+                                {{ $category->name }}
+                            </strong>
+                        </td>
 
-                    <td>
-                        {{ $category->slug }}
-                    </td>
+                        <td>
+                            {{ $category->slug }}
+                        </td>
 
-                    <td>
-                        <span class="badge bg-secondary">
-                            {{ $category->products_count }}
-                        </span>
-                    </td>
+                        <td>
+                            <span class="badge bg-secondary">
+                                {{ $category->products_count }}
+                            </span>
+                        </td>
 
-                    <td>
+                        <td>
 
-                        <div class="d-flex gap-2">
+                            <div class="d-flex gap-2">
 
-                            <a
-                                href="{{ route('admin.categories.edit', $category) }}"
-                                class="btn btn-sm btn-outline-warning"
-                            >
-                                <i class="fa-solid fa-pen"></i>
-                            </a>
-
-                            <form
-                                action="{{ route('admin.categories.destroy', $category) }}"
-                                method="POST"
-                                onsubmit="return confirm('Hapus kategori ini?')"
-                            >
-                                @csrf
-                                @method('DELETE')
-
-                                <button
-                                    type="submit"
-                                    class="btn btn-sm btn-outline-danger"
+                                <a
+                                    href="{{ route('admin.categories.edit', $category) }}"
+                                    class="btn btn-sm btn-outline-warning"
                                 >
-                                    <i class="fa-solid fa-trash"></i>
-                                </button>
+                                    <i class="fa-solid fa-pen"></i>
+                                </a>
 
-                            </form>
+                                <form
+                                    action="{{ route('admin.categories.destroy', $category) }}"
+                                    method="POST"
+                                    onsubmit="return confirm('Hapus kategori ini?')"
+                                >
+                                    @csrf
+                                    @method('DELETE')
 
-                        </div>
+                                    <button
+                                        type="submit"
+                                        class="btn btn-sm btn-outline-danger"
+                                    >
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
 
-                    </td>
+                                </form>
 
-                </tr>
+                            </div>
+
+                        </td>
+
+                    </tr>
 
                 @empty
 
-                <tr>
+                    <tr>
 
-                    <td colspan="5" class="text-center py-4">
-                        Belum ada kategori
-                    </td>
+                        <td
+                            colspan="5"
+                            class="text-center py-4"
+                        >
+                            Belum ada kategori
+                        </td>
 
-                </tr>
+                    </tr>
 
                 @endforelse
 
