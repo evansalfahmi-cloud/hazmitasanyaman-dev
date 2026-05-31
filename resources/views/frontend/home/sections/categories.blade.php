@@ -9,7 +9,7 @@
             ======================================= -->
             <div class="col-lg-6">
 
-                <a href="#" class="category-card">
+                <a href="{{ route('products.index', ['category' => 'tas-anyaman']) }}" class="category-card">
 
                     <div class="category-icon">
 
@@ -38,7 +38,7 @@
             ======================================= -->
             <div class="col-lg-6">
 
-                <a href="#" class="category-card">
+                <a href="{{ route('products.index', ['category' => 'tas-fashion']) }}" class="category-card">
 
                     <div class="category-icon">
 

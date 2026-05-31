@@ -2,23 +2,46 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $products = Product::with('category')
-            ->where('is_active', true)
-            ->latest()
-            ->paginate(12);
+            ->where('is_active', true);
 
-        return view('frontend.products.index', compact('products'));
+        // Filter kategori
+        if ($request->filled('category')) {
+
+            $products->whereHas('category', function ($query) use ($request) {
+
+                $query->where(
+                    'slug',
+                    $request->category
+                );
+
+            });
+        }
+
+        $products = $products
+            ->latest()
+            ->paginate(12)
+            ->withQueryString();
+
+        return view(
+            'frontend.products.index',
+            compact('products')
+        );
     }
 
     public function show(Product $product)
     {
-        return view('frontend.products.show', compact('product'));
+        return view(
+            'frontend.products.show',
+            compact('product')
+        );
     }
 }
