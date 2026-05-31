@@ -78,7 +78,7 @@
         </div>
 
         <!-- Action -->
-        <div class="hazmi-login-action">
+        <div class="hazmi-login-action mb-4">
 
             @if (Route::has('password.request'))
 
@@ -97,6 +97,23 @@
             >
                 Login
             </button>
+
+        </div>
+
+        <!-- Register Customer -->
+        <div class="text-center border-top pt-4">
+
+            <p class="text-muted mb-3">
+                Belum memiliki akun ?
+            </p>
+
+            <a
+                href="{{ route('register') }}"
+                class="btn btn-outline-secondary w-100"
+            >
+                <i class="fa-solid fa-user-plus me-2"></i>
+                Daftar Akun 
+            </a>
 
         </div>
 
