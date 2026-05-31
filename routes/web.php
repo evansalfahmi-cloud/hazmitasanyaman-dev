@@ -27,7 +27,13 @@ Route::view('/promo', 'frontend.promo.index')
     ->name('promo');
 Route::view('/about', 'frontend.about.index')
     ->name('about');
+Route::view('/testimonial', 'frontend.testimonial.index')
+    ->name('testimonial');
+Route::view('/blog', 'frontend.blog.index')
+    ->name('blog');
 
+Route::view('/contact', 'frontend.contact.index')
+    ->name('contact');
     /*
 |--------------------------------------------------------------------------
 | Cart

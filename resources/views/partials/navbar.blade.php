@@ -77,7 +77,7 @@
 
                     <a
                         class="nav-link"
-                        href="#"
+                       href="{{ route('testimonial') }}"
                     >
                         Testimoni
                     </a>
@@ -88,7 +88,7 @@
 
                     <a
                         class="nav-link"
-                        href="#"
+                        href="{{ route('blog') }}"
                     >
                         Blog
                     </a>
@@ -99,7 +99,7 @@
 
                     <a
                         class="nav-link"
-                        href="#"
+                        href="{{ route('contact') }}"
                     >
                         Kontak
                     </a>
