@@ -6,101 +6,106 @@
 
 <section class="products-section">
 
-    <div class="container">
 
-        {{-- Judul --}}
-        <div class="products-title">
+<div class="container">
 
-            <h1>
-                Produk Hazmi Tas Anyaman
-            </h1>
+    {{-- Judul --}}
+    <div class="products-title">
 
-            <p>
-                Temukan koleksi tas anyaman dan fashion pilihan terbaik.
-            </p>
+        <h1>
+            Produk Hazmi Tas Anyaman
+        </h1>
 
-        </div>
+        <p>
+            Temukan koleksi tas anyaman dan fashion pilihan terbaik.
+        </p>
 
-        {{-- Daftar Produk --}}
-        <div class="row">
+    </div>
 
-            @forelse($products as $product)
+    {{-- Daftar Produk --}}
+    <div class="row">
 
-                <div class="col-lg-3 col-md-6 mb-4">
+        @forelse($products as $product)
 
-                    <div class="product-card">
+            <div class="col-lg-3 col-md-6 mb-4">
 
-                        <img
-                            src="{{ asset('image/products/' . $product->image) }}"
-                            alt="{{ $product->title }}"
-                            class="product-image"
+                <div class="product-card">
+
+                    <img
+                        src="{{ asset('image/products/' . $product->image) }}"
+                        alt="{{ $product->title }}"
+                        class="product-image"
+                    >
+
+                    <div class="product-body">
+
+                        <div class="product-category">
+                            {{ $product->category->name ?? '-' }}
+                        </div>
+
+                        <div class="product-title">
+                            {{ $product->title }}
+                        </div>
+
+                        <div class="product-price">
+                            Rp {{ number_format($product->price, 0, ',', '.') }}
+                        </div>
+
+                    </div>
+
+                    <div class="product-actions">
+
+                        <button
+                            type="button"
+                            class="btn-cart"
                         >
+                            <i class="fa-solid fa-cart-plus me-2"></i>
+                            Keranjang
+                        </button>
 
-                        <div class="product-body">
-
-                            <div class="product-category">
-
-                                {{ $product->category->name ?? '-' }}
-
-                            </div>
-
-                            <div class="product-title">
-
-                                {{ $product->title }}
-
-                            </div>
-
-                            <div class="product-price">
-
-                                Rp {{ number_format($product->price, 0, ',', '.') }}
-
-                            </div>
-
-                        </div>
-
-                        <div class="p-3">
-
-                            <a
-                                href="{{ route('products.show', $product) }}"
-                                class="btn-hazmi"
-                            >
-                                Lihat Detail
-                            </a>
-
-                        </div>
+                        <a
+                            href="#"
+                            class="btn-wa"
+                        >
+                            <i class="fa-brands fa-whatsapp me-2"></i>
+                            Pesan
+                        </a>
 
                     </div>
 
                 </div>
-
-            @empty
-
-                <div class="col-12">
-
-                    <div class="alert alert-warning text-center">
-
-                        Produk belum tersedia.
-
-                    </div>
-
-                </div>
-
-            @endforelse
-
-        </div>
-
-        {{-- Pagination --}}
-        @if ($products->hasPages())
-
-            <div class="mt-5 d-flex justify-content-center">
-
-                {{ $products->links() }}
 
             </div>
 
-        @endif
+        @empty
+
+            <div class="col-12">
+
+                <div class="alert alert-warning text-center">
+
+                    Produk belum tersedia.
+
+                </div>
+
+            </div>
+
+        @endforelse
 
     </div>
+
+    {{-- Pagination --}}
+    @if ($products->hasPages())
+
+        <div class="mt-5 d-flex justify-content-center">
+
+            {{ $products->links() }}
+
+        </div>
+
+    @endif
+
+</div>
+
 
 </section>
 
