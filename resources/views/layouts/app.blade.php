@@ -47,6 +47,47 @@
     {{-- Footer --}}
     @include('partials.footer')
 
+@if(session('success'))
+
+<div id="toast-success" class="hazmi-toast">
+
+    <div class="toast-check">
+        <i class="fa-solid fa-check"></i>
+    </div>
+
+    <div class="toast-message">
+        {{ session('success') }}
+    </div>
+
+</div>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    setTimeout(() => {
+
+        let toast = document.getElementById('toast-success');
+
+        if (toast) {
+
+            toast.classList.add('hide');
+
+            setTimeout(() => {
+
+                toast.remove();
+
+            }, 500);
+        }
+
+    }, 1800);
+
+});
+
+</script>
+
+@endif
+
 </body>
 
 </html>

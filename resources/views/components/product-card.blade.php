@@ -12,6 +12,13 @@
                 src="{{ asset('image/products/' . $product->image) }}"
                 alt="{{ $product->title }}"
                 onerror="this.onerror=null;this.src='{{ asset('image/products/no-img.jpg') }}';"
+
+                class="product-image-preview"
+
+                data-bs-toggle="modal"
+                data-bs-target="#productImageModal{{ $product->id }}"
+
+                style="cursor:pointer"
             >
 
             <span class="product-badge">
@@ -113,6 +120,42 @@
                 </a>
 
             @endauth
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ======================================
+     MODAL PREVIEW GAMBAR
+====================================== -->
+<div
+    class="modal fade"
+    id="productImageModal{{ $product->id }}"
+    tabindex="-1"
+    aria-hidden="true"
+>
+
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+
+        <div class="modal-content border-0 bg-transparent">
+
+            <div class="modal-body text-center p-0 position-relative">
+
+                <button
+                    type="button"
+                    class="btn-close bg-white position-absolute top-0 end-0 m-3"
+                    data-bs-dismiss="modal"
+                ></button>
+
+                <img
+                    src="{{ asset('image/products/' . $product->image) }}"
+                    alt="{{ $product->title }}"
+                    class="img-fluid rounded shadow"
+                    onerror="this.onerror=null;this.src='{{ asset('image/products/no-img.jpg') }}';"
+                >
+
+            </div>
 
         </div>
 

@@ -40,7 +40,7 @@
                         </p>
 
                         <!-- Button -->
-                        <a href="#" class="btn hero-button">
+                        <a href="{{ route('products.index') }}" class="btn hero-button">
 
                             <i class="fa-solid fa-bag-shopping me-2"></i>
 

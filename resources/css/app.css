@@ -2185,3 +2185,95 @@ img {
     overflow:hidden;
     box-shadow:0 10px 30px rgba(0,0,0,.05);
 }
+
+/* ========================================
+   HAZMI TOAST SUCCESS
+======================================== */
+
+.hazmi-toast{
+    position:fixed;
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%, -50%);
+
+    width:280px;
+
+    background:rgba(0,0,0,.80);
+
+    border-radius:20px;
+
+    padding:30px 20px;
+
+    text-align:center;
+
+    color:#fff;
+
+    z-index:99999;
+
+    animation:toastShow .3s ease;
+}
+
+.toast-check{
+    width:70px;
+    height:70px;
+
+    border-radius:50%;
+
+    background:#20c997;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin:0 auto 15px;
+
+    font-size:30px;
+}
+
+.toast-message{
+    font-size:16px;
+    font-weight:600;
+    line-height:1.5;
+}
+
+.hazmi-toast.hide{
+    opacity:0;
+    transition:.5s;
+}
+
+@keyframes toastShow{
+
+    from{
+        opacity:0;
+        transform:translate(-50%,-45%);
+    }
+
+    to{
+        opacity:1;
+        transform:translate(-50%,-50%);
+    }
+
+}
+
+/* ======================================
+   PRODUCT IMAGE PREVIEW
+====================================== */
+
+.product-image-preview {
+    cursor: pointer;
+    transition: .3s;
+}
+
+.product-image-preview:hover {
+    transform: scale(1.03);
+}
+
+.modal-content.bg-transparent {
+    background: transparent !important;
+}
+
+.modal-body img {
+    max-height: 85vh;
+    object-fit: contain;
+}
