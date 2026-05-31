@@ -65,7 +65,7 @@
 
                             <p class="hazmi-login-description">
 
-                                Silakan Login Terlebih Dahulu
+                                Silakan Login/Daftar Terlebih Dahulu
 
                             </p>
 
