@@ -40,4 +40,14 @@ class User extends Authenticatable
     {
         return $this->role === 'customer';
     }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Relasi Keranjang
+    |--------------------------------------------------------------------------
+    */
+    public function cart()
+    {
+        return $this->hasOne(Cart::class);
+    }
 }

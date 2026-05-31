@@ -1,10 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ProductController as FrontendProductController;
-
+use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -24,6 +23,29 @@ Route::get('/products', [FrontendProductController::class, 'index'])
 
 Route::get('/products/{product}', [FrontendProductController::class, 'show'])
     ->name('products.show');
+
+    /*
+|--------------------------------------------------------------------------
+| Cart
+|--------------------------------------------------------------------------
+*/
+
+Route::middleware(['auth'])
+    ->group(function () {
+
+        Route::get('/cart', [CartController::class, 'index'])
+            ->name('cart.index');
+
+        Route::post('/cart/add/{product}', [CartController::class, 'add'])
+            ->name('cart.add');
+
+        Route::delete('/cart/remove/{item}', [CartController::class, 'remove'])
+            ->name('cart.remove');
+
+        Route::get('/cart/checkout', [CartController::class, 'checkout'])
+            ->name('cart.checkout');
+
+    });
 
 /*
 |--------------------------------------------------------------------------

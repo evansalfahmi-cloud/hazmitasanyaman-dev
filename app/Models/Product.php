@@ -18,8 +18,23 @@ class Product extends Model
         'is_active',
     ];
 
+    /*
+    |--------------------------------------------------------------------------
+    | Relasi Kategori
+    |--------------------------------------------------------------------------
+    */
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Relasi Cart Item
+    |--------------------------------------------------------------------------
+    */
+    public function cartItems()
+    {
+        return $this->hasMany(CartItem::class);
     }
 }
