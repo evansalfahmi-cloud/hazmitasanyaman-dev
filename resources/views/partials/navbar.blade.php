@@ -32,8 +32,8 @@
                 <li class="nav-item">
 
                     <a
-                        class="nav-link active"
-                        href="#"
+                        class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}"
+                        href="{{ route('home') }}"
                     >
                         Beranda
                     </a>
@@ -43,8 +43,8 @@
                 <li class="nav-item">
 
                     <a
-                        class="nav-link"
-                        href="#"
+                        class="nav-link {{ request()->routeIs('products.*') ? 'active' : '' }}"
+                        href="{{ route('products.index') }}"
                     >
                         Produk
                     </a>
