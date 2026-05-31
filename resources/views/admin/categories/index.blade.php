@@ -108,7 +108,7 @@
 
                                 <a
                                     href="{{ route('admin.categories.edit', $category) }}"
-                                    class="btn btn-sm btn-outline-warning"
+                                    class="btn-action btn-edit"
                                 >
                                     <i class="fa-solid fa-pen"></i>
                                 </a>
@@ -123,7 +123,7 @@
 
                                     <button
                                         type="submit"
-                                        class="btn btn-sm btn-outline-danger"
+                                        class="btn-action btn-delete"
                                     >
                                         <i class="fa-solid fa-trash"></i>
                                     </button>

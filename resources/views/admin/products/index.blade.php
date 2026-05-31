@@ -202,14 +202,14 @@
 
                                 <a
                                     href="{{ route('admin.products.edit', $product) }}"
-                                    class="btn btn-sm btn-hazmi-outline"
+                                    class="btn-action btn-edit"
                                 >
                                     <i class="fa-solid fa-pen"></i>
                                 </a>
 
-                               <form action="{{ route('admin.products.destroy', $product) }}"
+                                <form
+                                    action="{{ route('admin.products.destroy', $product) }}"
                                     method="POST"
-                                    class="d-inline"
                                     onsubmit="return confirm('Yakin ingin menghapus produk ini?')"
                                 >
                                     @csrf
@@ -217,7 +217,7 @@
 
                                     <button
                                         type="submit"
-                                        class="btn btn-outline-danger btn-sm"
+                                        class="btn-action btn-delete"
                                     >
                                         <i class="fa-solid fa-trash"></i>
                                     </button>

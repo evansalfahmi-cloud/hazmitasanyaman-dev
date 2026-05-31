@@ -1525,7 +1525,6 @@ img {
 
 .btn-hazmi {
     display: block;
-    width: 100%;
     background: var(--primary-color);
     color: #fff;
     border: none;
@@ -1751,4 +1750,48 @@ img {
 
     }
 
+}
+
+/* ======================================
+   ADMIN ACTION BUTTON
+====================================== */
+
+.btn-action {
+    width: 38px;
+    height: 38px;
+
+    border: none;
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+
+    transition: all .2s ease;
+}
+
+/* Edit */
+
+.btn-edit {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.btn-edit:hover {
+    background: #8b4b2a;
+    color: #fff;
+}
+
+/* Delete */
+
+.btn-delete {
+    background: #dc3545;
+    color: #fff;
+}
+
+.btn-delete:hover {
+    background: #bb2d3b;
+    color: #fff;
 }
