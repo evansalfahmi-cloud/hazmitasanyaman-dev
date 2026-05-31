@@ -79,8 +79,7 @@
             </form>
                 <!-- WhatsApp -->
                 <a
-                    href="https://wa.me/6281234567890"
-                    target="_blank"
+                    href="{{ route('cart.index') }}"
                     class="btn-whatsapp"
                 >
 

@@ -118,7 +118,7 @@ class CartController extends Controller
         $message .= "%0ATerima kasih.";
 
         return redirect(
-            'https://wa.me/6281234567890?text=' . $message
+            'https://wa.me/6285368140401?text=' . $message
         );
     }
 

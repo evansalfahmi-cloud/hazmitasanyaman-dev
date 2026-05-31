@@ -4,107 +4,235 @@
 
 @section('content')
 
-<div class="container py-5">
+<section class="cart-section py-5">
 
-    <h2 class="mb-4">
-        Keranjang Belanja
-    </h2>
+    <div class="container">
 
-    @if(!$cart || $cart->items->isEmpty())
+        <div class="row g-4">
 
-        <div class="alert alert-warning">
+            {{-- =====================================
+                 DAFTAR PRODUK
+            ====================================== --}}
+            <div class="col-lg-8">
 
-            Keranjang masih kosong.
+                <div class="cart-card">
 
-        </div>
+                    <div class="cart-header">
 
-    @else
+                        <h3>
 
-        <div class="card shadow-sm">
+                            Keranjang Belanja
 
-            <div class="card-body">
+                        </h3>
 
-                @foreach($cart->items as $item)
+                        <span>
 
-                    <div class="row align-items-center mb-4">
+                            {{ $cart ? $cart->items->count() : 0 }}
+                            Produk
 
-                        <div class="col-md-2">
-
-                            <img
-                                src="{{ asset('image/products/' . $item->product->image) }}"
-                                class="img-fluid rounded"
-                            >
-
-                        </div>
-
-                        <div class="col-md-4">
-
-                            <h5>
-
-                                {{ $item->product->title }}
-
-                            </h5>
-
-                            <small>
-
-                                Qty:
-                                {{ $item->quantity }}
-
-                            </small>
-
-                        </div>
-
-                        <div class="col-md-3">
-
-                            Rp {{ number_format($item->product->price,0,',','.') }}
-
-                        </div>
-
-                        <div class="col-md-3">
-
-                            <form
-                                action="{{ route('cart.remove', $item) }}"
-                                method="POST"
-                            >
-
-                                @csrf
-                                @method('DELETE')
-
-                                <button
-                                    class="btn btn-danger"
-                                >
-
-                                    Hapus
-
-                                </button>
-
-                            </form>
-
-                        </div>
+                        </span>
 
                     </div>
 
-                @endforeach
+                    <hr>
 
-                <hr>
+                    @if(!$cart || $cart->items->isEmpty())
 
-                <a
-                    href="{{ route('cart.checkout') }}"
-                    class="btn btn-success btn-lg"
-                >
+                        <div class="alert alert-warning">
 
-                    <i class="fa-brands fa-whatsapp me-2"></i>
+                            Keranjang masih kosong.
 
-                    Checkout via WhatsApp
+                        </div>
 
-                </a>
+                    @else
+
+                        @foreach($cart->items as $item)
+
+                            <div class="cart-item">
+
+                                {{-- Gambar --}}
+                                <div class="cart-image">
+
+                                    <img
+                                        src="{{ asset('image/products/' . $item->product->image) }}"
+                                        alt="{{ $item->product->title }}"
+                                    >
+
+                                </div>
+
+                                {{-- Informasi --}}
+                                <div class="cart-info">
+
+                                    <h5>
+
+                                        {{ $item->product->title }}
+
+                                    </h5>
+
+                                    <small>
+
+                                        {{ $item->product->category->name }}
+
+                                    </small>
+
+                                    <form
+                                        action="{{ route('cart.remove', $item) }}"
+                                        method="POST"
+                                        class="mt-2"
+                                    >
+
+                                        @csrf
+                                        @method('DELETE')
+
+                                        <button
+                                            class="btn btn-link text-danger p-0"
+                                        >
+
+                                            Hapus
+
+                                        </button>
+
+                                    </form>
+
+                                </div>
+
+                                {{-- Qty --}}
+                                <div class="cart-qty">
+
+                                    {{ $item->quantity }} x
+
+                                </div>
+
+                                {{-- Harga --}}
+                                <div class="cart-price">
+
+                                    Rp {{ number_format($item->product->price,0,',','.') }}
+
+                                </div>
+
+                                {{-- Total --}}
+                                <div class="cart-total">
+
+                                    Rp {{ number_format($item->product->price * $item->quantity,0,',','.') }}
+
+                                </div>
+
+                            </div>
+
+                            <hr>
+
+                        @endforeach
+
+                    @endif
+
+                </div>
+
+            </div>
+
+
+            {{-- =====================================
+                 RINGKASAN
+            ====================================== --}}
+            <div class="col-lg-4">
+
+                <div class="summary-card">
+
+                    <h4>
+
+                        Ringkasan Pesanan
+
+                    </h4>
+
+                    <hr>
+
+                    @php
+
+                        $subtotal = 0;
+
+                        if($cart){
+
+                            foreach($cart->items as $item){
+
+                                $subtotal +=
+                                    $item->product->price
+                                    *
+                                    $item->quantity;
+
+                            }
+
+                        }
+
+                    @endphp
+
+                    <div class="summary-row">
+
+                        <span>
+
+                            Jumlah Produk
+
+                        </span>
+
+                        <span>
+
+                            {{ $cart ? $cart->items->count() : 0 }}
+
+                        </span>
+
+                    </div>
+
+                    <div class="summary-row">
+
+                        <span>
+
+                            Total Item
+
+                        </span>
+
+                        <span>
+
+                            {{ $cart ? $cart->items->sum('quantity') : 0 }}
+
+                        </span>
+
+                    </div>
+
+                    <hr>
+
+                    <div class="summary-total">
+
+                        <span>
+
+                            Total Belanja
+
+                        </span>
+
+                        <strong>
+
+                            Rp {{ number_format($subtotal,0,',','.') }}
+
+                        </strong>
+
+                    </div>
+
+                    <a
+                        href="{{ route('cart.checkout') }}"
+                        class="btn-checkout"
+                    >
+
+                        <i class="fa-brands fa-whatsapp me-2"></i>
+
+                        Checkout via WhatsApp
+
+                    </a>
+
+                </div>
 
             </div>
 
         </div>
 
-    @endif
+    </div>
 
-</div>
+</section>
 
 @endsection
