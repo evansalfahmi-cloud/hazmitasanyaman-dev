@@ -55,8 +55,8 @@
             </a>
 
             <a
-                href="#"
-                class="nav-link text-white py-3"
+                href="{{ route('admin.testimoni.index') }}"
+                class="nav-link text-white"
             >
                 <i class="fa-solid fa-comments me-2"></i>
                 Testimoni
