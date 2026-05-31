@@ -66,7 +66,7 @@
 
                     <a
                         class="nav-link"
-                        href="#"
+                        href="{{ route('about') }}"
                     >
                         Tentang Kami
                     </a>
