@@ -1,3 +1,7 @@
+@php
+    use Illuminate\Support\Facades\Auth;
+@endphp
+
 <div class="header-wrapper">
 
     <div class="container">
@@ -9,7 +13,6 @@
             ======================================= -->
             <div class="header-logo">
 
-                <!-- Logo Image -->
                 <div class="logo-image">
 
                     <img
@@ -19,19 +22,14 @@
 
                 </div>
 
-                <!-- Logo Text -->
                 <div class="logo-text">
 
                     <h2>
-
                         HAZMI
-
                     </h2>
 
                     <span>
-
                         TAS ANYAMAN
-
                     </span>
 
                 </div>
@@ -48,7 +46,6 @@
 
                     <div class="search-box">
 
-                        <!-- Category -->
                         <select class="form-select search-category">
 
                             <option>
@@ -65,16 +62,12 @@
 
                         </select>
 
-
-                        <!-- Input -->
                         <input
                             type="text"
                             class="form-control search-input"
                             placeholder="Cari produk, kategori, atau merek..."
                         >
 
-
-                        <!-- Button -->
                         <button
                             type="submit"
                             class="search-button"
@@ -83,9 +76,7 @@
                             <i class="fa-solid fa-magnifying-glass"></i>
 
                             <span>
-
                                 Cari
-
                             </span>
 
                         </button>
@@ -102,35 +93,145 @@
             ======================================= -->
             <div class="header-actions">
 
-                <!-- Account -->
-                <a
-                    href="#"
-                    class="header-account"
-                >
+                @auth
 
-                    <div class="header-icon">
+                    <div class="dropdown">
 
-                        <i class="fa-regular fa-user"></i>
+                        <a
+                            href="#"
+                            class="header-account text-decoration-none"
+                            data-bs-toggle="dropdown"
+                        >
+
+                            <div class="header-icon">
+
+                                <i class="fa-regular fa-user"></i>
+
+                            </div>
+
+                            <div class="header-info">
+
+                                <small>
+
+                                    {{ Auth::user()->name }}
+
+                                </small>
+
+                                <span>
+
+                                    {{ Auth::user()->role === 'admin' ? 'Admin' : 'Customer' }}
+
+                                </span>
+
+                            </div>
+
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-end shadow border-0">
+
+                            @if(Auth::user()->role === 'admin')
+
+                                <li>
+
+                                    <a
+                                        class="dropdown-item"
+                                        href="{{ route('admin.dashboard') }}"
+                                    >
+                                        <i class="fa-solid fa-gauge-high me-2"></i>
+                                        Dashboard Admin
+                                    </a>
+
+                                </li>
+
+                            @else
+
+                                <li>
+
+                                    <a
+                                        class="dropdown-item"
+                                        href="#"
+                                    >
+                                        <i class="fa-solid fa-user me-2"></i>
+                                        Akun Saya
+                                    </a>
+
+                                </li>
+
+                                <li>
+
+                                    <a
+                                        class="dropdown-item"
+                                        href="#"
+                                    >
+                                        <i class="fa-solid fa-bag-shopping me-2"></i>
+                                        Riwayat Pesanan
+                                    </a>
+
+                                </li>
+
+                            @endif
+
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+
+                            <li>
+
+                                <form
+                                    action="{{ route('logout') }}"
+                                    method="POST"
+                                >
+
+                                    @csrf
+
+                                    <button
+                                        type="submit"
+                                        class="dropdown-item text-danger"
+                                    >
+                                        <i class="fa-solid fa-right-from-bracket me-2"></i>
+                                        Logout
+                                    </button>
+
+                                </form>
+
+                            </li>
+
+                        </ul>
 
                     </div>
 
-                    <div class="header-info">
+                @else
 
-                        <small>
+                    <a
+                        href="{{ route('login') }}"
+                        class="header-account"
+                    >
 
-                            Masuk / Daftar
+                        <div class="header-icon">
 
-                        </small>
+                            <i class="fa-regular fa-user"></i>
 
-                        <span>
+                        </div>
 
-                            Akun Saya
+                        <div class="header-info">
 
-                        </span>
+                            <small>
 
-                    </div>
+                                Masuk / Daftar
 
-                </a>
+                            </small>
+
+                            <span>
+
+                                Akun Saya
+
+                            </span>
+
+                        </div>
+
+                    </a>
+
+                @endauth
 
 
                 <!-- Cart -->
@@ -155,8 +256,6 @@
 
                     </div>
 
-
-                    <!-- Badge -->
                     <div class="cart-badge">
 
                         0

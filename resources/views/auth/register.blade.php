@@ -1,52 +1,139 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+
+    <form
+        method="POST"
+        action="{{ route('register') }}"
+        class="hazmi-login-form"
+    >
+
         @csrf
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+        <!-- Nama -->
+        <div class="mb-4">
+
+            <label
+                for="name"
+                class="form-label fw-semibold hazmi-login-label"
+            >
+                Nama Lengkap
+            </label>
+
+            <input
+                id="name"
+                type="text"
+                name="name"
+                value="{{ old('name') }}"
+                class="form-control hazmi-login-input"
+                required
+                autofocus
+            >
+
+            @error('name')
+                <div class="text-danger small mt-1">
+                    {{ $message }}
+                </div>
+            @enderror
+
         </div>
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        <!-- Email -->
+        <div class="mb-4">
+
+            <label
+                for="email"
+                class="form-label fw-semibold hazmi-login-label"
+            >
+                Email
+            </label>
+
+            <input
+                id="email"
+                type="email"
+                name="email"
+                value="{{ old('email') }}"
+                class="form-control hazmi-login-input"
+                required
+            >
+
+            @error('email')
+                <div class="text-danger small mt-1">
+                    {{ $message }}
+                </div>
+            @enderror
+
         </div>
 
         <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+        <div class="mb-4">
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
+            <label
+                for="password"
+                class="form-label fw-semibold hazmi-login-label"
+            >
+                Password
+            </label>
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+            <input
+                id="password"
+                type="password"
+                name="password"
+                class="form-control hazmi-login-input"
+                required
+            >
+
+            @error('password')
+                <div class="text-danger small mt-1">
+                    {{ $message }}
+                </div>
+            @enderror
+
         </div>
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+        <!-- Konfirmasi Password -->
+        <div class="mb-4">
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
+            <label
+                for="password_confirmation"
+                class="form-label fw-semibold hazmi-login-label"
+            >
+                Konfirmasi Password
+            </label>
 
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+            <input
+                id="password_confirmation"
+                type="password"
+                name="password_confirmation"
+                class="form-control hazmi-login-input"
+                required
+            >
+
+            @error('password_confirmation')
+                <div class="text-danger small mt-1">
+                    {{ $message }}
+                </div>
+            @enderror
+
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
+        <!-- Action -->
+        <div class="hazmi-login-action">
+
+            <a
+                href="{{ route('login') }}"
+                class="hazmi-forgot-password"
+            >
+                Sudah punya akun?
             </a>
 
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
+            <button
+                type="submit"
+                class="btn hazmi-login-button"
+            >
+                Daftar
+            </button>
+
         </div>
+
     </form>
+
 </x-guest-layout>
