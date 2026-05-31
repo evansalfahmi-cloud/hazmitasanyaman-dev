@@ -3,12 +3,33 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\ProductController as FrontendProductController;
+
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\TestimoniController;
 
-Route::get('/', [HomeController::class, 'index']);
+/*
+|--------------------------------------------------------------------------
+| Frontend
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/', [HomeController::class, 'index'])
+    ->name('home');
+
+Route::get('/products', [FrontendProductController::class, 'index'])
+    ->name('products.index');
+
+Route::get('/products/{product}', [FrontendProductController::class, 'show'])
+    ->name('products.show');
+
+/*
+|--------------------------------------------------------------------------
+| Admin
+|--------------------------------------------------------------------------
+*/
 
 Route::middleware(['auth'])
     ->prefix('admin')
@@ -23,22 +44,22 @@ Route::middleware(['auth'])
         |--------------------------------------------------------------------------
         */
 
-        Route::get('/products', [ProductController::class, 'index'])
+        Route::get('/products', [AdminProductController::class, 'index'])
             ->name('admin.products.index');
 
-        Route::get('/products/create', [ProductController::class, 'create'])
+        Route::get('/products/create', [AdminProductController::class, 'create'])
             ->name('admin.products.create');
 
-        Route::post('/products', [ProductController::class, 'store'])
+        Route::post('/products', [AdminProductController::class, 'store'])
             ->name('admin.products.store');
 
-        Route::get('/products/{product}/edit', [ProductController::class, 'edit'])
+        Route::get('/products/{product}/edit', [AdminProductController::class, 'edit'])
             ->name('admin.products.edit');
 
-        Route::put('/products/{product}', [ProductController::class, 'update'])
+        Route::put('/products/{product}', [AdminProductController::class, 'update'])
             ->name('admin.products.update');
 
-        Route::delete('/products/{product}', [ProductController::class, 'destroy'])
+        Route::delete('/products/{product}', [AdminProductController::class, 'destroy'])
             ->name('admin.products.destroy');
 
         /*
@@ -65,9 +86,14 @@ Route::middleware(['auth'])
         Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])
             ->name('admin.categories.destroy');
 
-        //testimoni
+        /*
+        |--------------------------------------------------------------------------
+        | Testimoni
+        |--------------------------------------------------------------------------
+        */
+
         Route::get('/testimoni', [TestimoniController::class, 'index'])
-        ->name('admin.testimoni.index');
+            ->name('admin.testimoni.index');
     });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
