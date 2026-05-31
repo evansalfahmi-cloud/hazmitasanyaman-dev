@@ -55,8 +55,8 @@
 
                     <a
                         class="nav-link"
-                        href="#"
-                    >
+                        href="{{ route('promo') }}">
+                    
                         Promo
                     </a>
 

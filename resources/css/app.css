@@ -1795,3 +1795,101 @@ img {
     background: #bb2d3b;
     color: #fff;
 }
+
+/* ======================================
+   PROMO PAGE
+====================================== */
+
+.promo-hero {
+    padding: 100px 0;
+    background: linear-gradient(
+        135deg,
+        var(--primary-color),
+        #c9875b
+    );
+    color: white;
+    text-align: center;
+}
+
+.promo-badge {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 50px;
+    background: rgba(255,255,255,.2);
+    margin-bottom: 20px;
+}
+
+.promo-hero h1 {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.promo-hero p {
+    max-width: 700px;
+    margin: 20px auto 0;
+}
+
+.promo-section {
+    padding: 80px 0;
+}
+
+.promo-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,.05);
+    height: 100%;
+}
+
+.promo-icon {
+    width: 80px;
+    height: 80px;
+    margin: auto;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    background: rgba(163,92,55,.1);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.promo-icon i {
+    font-size: 32px;
+    color: var(--primary-color);
+}
+
+.promo-coming-soon {
+    padding: 0 0 100px;
+}
+
+.coming-soon-card {
+    background: white;
+    border-radius: 24px;
+    padding: 60px;
+    text-align: center;
+    box-shadow: 0 5px 25px rgba(0,0,0,.05);
+}
+
+.coming-soon-card i {
+    font-size: 60px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.btn-promo {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 30px;
+    border-radius: 10px;
+
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+}
+
+.btn-promo:hover {
+    color: white;
+    opacity: .9;
+}

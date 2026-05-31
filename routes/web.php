@@ -23,6 +23,8 @@ Route::get('/products', [FrontendProductController::class, 'index'])
 
 Route::get('/products/{product}', [FrontendProductController::class, 'show'])
     ->name('products.show');
+Route::view('/promo', 'frontend.promo.index')
+    ->name('promo');
 
     /*
 |--------------------------------------------------------------------------
