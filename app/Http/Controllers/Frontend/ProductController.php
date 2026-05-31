@@ -13,7 +13,11 @@ class ProductController extends Controller
         $products = Product::with('category')
             ->where('is_active', true);
 
-        // Filter kategori
+        /*
+        |--------------------------------------------------------------------------
+        | Filter Kategori
+        |--------------------------------------------------------------------------
+        */
         if ($request->filled('category')) {
 
             $products->whereHas('category', function ($query) use ($request) {
@@ -21,6 +25,29 @@ class ProductController extends Controller
                 $query->where(
                     'slug',
                     $request->category
+                );
+
+            });
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | Search Produk
+        |--------------------------------------------------------------------------
+        */
+        if ($request->filled('search')) {
+
+            $products->where(function ($query) use ($request) {
+
+                $query->where(
+                    'title',
+                    'like',
+                    '%' . $request->search . '%'
+                )
+                ->orWhere(
+                    'description',
+                    'like',
+                    '%' . $request->search . '%'
                 );
 
             });

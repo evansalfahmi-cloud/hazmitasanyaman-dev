@@ -42,31 +42,38 @@
             ======================================= -->
             <div class="header-search">
 
-                <form action="#">
+                <form
+                    action="{{ route('products.index') }}"
+                    method="GET"
+                >
 
                     <div class="search-box">
 
-                        <select class="form-select search-category">
+                        <select
+                            name="category"
+                            class="form-select search-category"
+                        >
 
-                            <option>
-                                Semua Kategori
+                            <option value="">
+                            Semua Kategori
                             </option>
 
-                            <option>
+                            <option value="tas-anyaman">
                                 Tas Anyaman
                             </option>
 
-                            <option>
+                            <option value="tas-fashion">
                                 Tas Fashion
                             </option>
-
                         </select>
 
                         <input
-                            type="text"
-                            class="form-control search-input"
-                            placeholder="Cari produk, kategori, atau merek..."
-                        >
+                                type="text"
+                                name="search"
+                                class="form-control search-input"
+                                placeholder="Cari produk..."
+                                value="{{ request('search') }}"
+                            >
 
                         <button
                             type="submit"
