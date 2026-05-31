@@ -44,15 +44,7 @@
                 <div class="col-lg-3 col-md-6">
 
                     <x-product-card
-
-                        image="{{ asset('image/products/' . $product->image) }}"
-
-                        title="{{ $product->title }}"
-
-                        category="{{ $product->category->name }}"
-
-                        price="Rp {{ number_format($product->price, 0, ',', '.') }}"
-
+                        :product="$product"
                     />
 
                 </div>

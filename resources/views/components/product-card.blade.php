@@ -1,3 +1,6 @@
+@props([
+    'product'
+])
 <div class="product-card">
 
     <!-- ======================================
@@ -5,15 +8,15 @@
     ======================================= -->
         <div class="product-image">
 
-            <img
-                src="{{ $image ? $image : asset('image/products/no-img.jpg') }}"
-                alt="{{ $title }}"
+           <img
+                src="{{ asset('image/products/' . $product->image) }}"
+                alt="{{ $product->title }}"
                 onerror="this.onerror=null;this.src='{{ asset('image/products/no-img.jpg') }}';"
             >
 
             <span class="product-badge">
 
-                {{ $category }}
+                {{ $product->category->name }}
 
             </span>
 
@@ -42,14 +45,13 @@
         <!-- Product Title -->
         <h4 class="product-title">
 
-            {{ $title }}
-
+            {{ $product->title }}
         </h4>
 
         <!-- Product Price -->
         <div class="product-price">
 
-            {{ $price }}
+            Rp {{ number_format($product->price, 0, ',', '.') }}
 
         </div>
 
@@ -58,18 +60,23 @@
 
             @auth
 
-                <!-- Keranjang -->
-                <a
-                    href="#"
-                    class="btn-detail"
+    <!-- Keranjang -->
+           <form
+                action="{{ route('cart.add', $product) }}"
+                method="POST"
+                style="flex:1;"
+            >
+                @csrf
+
+                <button
+                    type="submit"
+                    class="btn-detail w-100"
                 >
-
                     <i class="fa-solid fa-cart-shopping me-1"></i>
-
                     Keranjang
+                </button>
 
-                </a>
-
+            </form>
                 <!-- WhatsApp -->
                 <a
                     href="https://wa.me/6281234567890"

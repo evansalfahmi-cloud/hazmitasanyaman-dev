@@ -29,51 +29,9 @@
 
             <div class="col-lg-3 col-md-6 mb-4">
 
-                <div class="product-card">
-
-                    <img
-                        src="{{ asset('image/products/' . $product->image) }}"
-                        alt="{{ $product->title }}"
-                        class="product-image"
-                    >
-
-                    <div class="product-body">
-
-                        <div class="product-category">
-                            {{ $product->category->name ?? '-' }}
-                        </div>
-
-                        <div class="product-title">
-                            {{ $product->title }}
-                        </div>
-
-                        <div class="product-price">
-                            Rp {{ number_format($product->price, 0, ',', '.') }}
-                        </div>
-
-                    </div>
-
-                    <div class="product-actions">
-
-                        <button
-                            type="button"
-                            class="btn-cart"
-                        >
-                            <i class="fa-solid fa-cart-plus me-2"></i>
-                            Keranjang
-                        </button>
-
-                        <a
-                            href="#"
-                            class="btn-wa"
-                        >
-                            <i class="fa-brands fa-whatsapp me-2"></i>
-                            Pesan
-                        </a>
-
-                    </div>
-
-                </div>
+                <x-product-card
+                    :product="$product"
+                />
 
             </div>
 

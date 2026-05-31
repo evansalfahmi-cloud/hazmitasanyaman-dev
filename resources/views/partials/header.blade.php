@@ -243,7 +243,7 @@
 
                 <!-- Cart -->
                 <a
-                    href="#"
+                    href="{{ route('cart.index') }}"
                     class="header-cart position-relative"
                 >
 
@@ -265,7 +265,19 @@
 
                     <div class="cart-badge">
 
-                        0
+                        @auth
+
+                            {{
+                                auth()->user()->cart
+                                    ? auth()->user()->cart->items->sum('quantity')
+                                    : 0
+                            }}
+
+                        @else
+
+                            0
+
+                        @endauth
 
                     </div>
 

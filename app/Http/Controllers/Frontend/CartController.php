@@ -35,46 +35,46 @@ class CartController extends Controller
     |--------------------------------------------------------------------------
     */
     public function add(Product $product)
-    {
-        $user = auth()->user();
+{
+    $user = auth()->user();
 
-        /*
-        |--------------------------------------------------------------------------
-        | Cari atau buat keranjang
-        |--------------------------------------------------------------------------
-        */
-        $cart = Cart::firstOrCreate([
-            'user_id' => $user->id,
+    /*
+    |--------------------------------------------------------------------------
+    | Cari atau buat keranjang
+    |--------------------------------------------------------------------------
+    */
+    $cart = Cart::firstOrCreate([
+        'user_id' => $user->id,
+    ]);
+
+    /*
+    |--------------------------------------------------------------------------
+    | Cek apakah produk sudah ada
+    |--------------------------------------------------------------------------
+    */
+    $item = CartItem::where('cart_id', $cart->id)
+        ->where('product_id', $product->id)
+        ->first();
+
+    if ($item) {
+
+        $item->increment('quantity');
+
+    } else {
+
+        CartItem::create([
+            'cart_id'   => $cart->id,
+            'product_id'=> $product->id,
+            'quantity'  => 1,
         ]);
 
-        /*
-        |--------------------------------------------------------------------------
-        | Cek apakah produk sudah ada
-        |--------------------------------------------------------------------------
-        */
-        $item = CartItem::where('cart_id', $cart->id)
-            ->where('product_id', $product->id)
-            ->first();
-
-        if ($item) {
-
-            $item->increment('quantity');
-
-        } else {
-
-            CartItem::create([
-                'cart_id'   => $cart->id,
-                'product_id'=> $product->id,
-                'quantity'  => 1,
-            ]);
-
-        }
-
-        return back()->with(
-            'success',
-            'Produk berhasil ditambahkan ke keranjang.'
-        );
     }
+
+    return back()->with(
+        'success',
+        'Produk berhasil ditambahkan ke keranjang.'
+    );
+}
 
     /*
     |--------------------------------------------------------------------------
@@ -83,16 +83,43 @@ class CartController extends Controller
     */
     public function remove(CartItem $item)
     {
-        //
+        $item->delete();
+
+        return back()->with(
+            'success',
+            'Produk berhasil dihapus dari keranjang.'
+        );
     }
 
-    /*
-    |--------------------------------------------------------------------------
-    | Checkout WhatsApp
-    |--------------------------------------------------------------------------
-    */
     public function checkout()
     {
-        //
+        $cart = auth()
+            ->user()
+            ->cart()
+            ->with('items.product')
+            ->first();
+
+        if (!$cart || $cart->items->isEmpty()) {
+
+            return back()->with(
+                'error',
+                'Keranjang masih kosong.'
+            );
+        }
+
+        $message = "Halo Hazmi Tas Anyaman,%0A%0ASaya ingin memesan:%0A";
+
+        foreach ($cart->items as $item) {
+
+            $message .=
+                "- {$item->product->title} ({$item->quantity}x)%0A";
+        }
+
+        $message .= "%0ATerima kasih.";
+
+        return redirect(
+            'https://wa.me/6281234567890?text=' . $message
+        );
     }
+
 }
