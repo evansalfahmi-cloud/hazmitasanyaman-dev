@@ -84,7 +84,7 @@
                 >
 
                     <i class="fa-brands fa-whatsapp"></i>
-
+                    WhatsApp
                 </a>
 
             @else
@@ -97,7 +97,7 @@
 
                     <i class="fa-solid fa-cart-shopping me-1"></i>
 
-                    Login Dulu
+                    Keranjang
 
                 </a>
 
@@ -109,7 +109,7 @@
                 >
 
                     <i class="fa-brands fa-whatsapp"></i>
-
+                    WhatsApp
                 </a>
 
             @endauth
