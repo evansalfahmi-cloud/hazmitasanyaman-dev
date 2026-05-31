@@ -65,7 +65,7 @@
 
                             <p class="hazmi-login-description">
 
-                                Silakan login untuk mengakses dashboard admin
+                                Silakan Login Terlebih Dahulu
 
                             </p>
 

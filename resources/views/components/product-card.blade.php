@@ -56,19 +56,57 @@
         <!-- Product Buttons -->
         <div class="product-buttons">
 
-            <!-- Detail Button -->
-            <a href="#" class="btn-detail">
+            @auth
 
-                Detail
+                <!-- Keranjang -->
+                <a
+                    href="#"
+                    class="btn-detail"
+                >
 
-            </a>
+                    <i class="fa-solid fa-cart-shopping me-1"></i>
 
-            <!-- WhatsApp Button -->
-            <a href="#" class="btn-whatsapp">
+                    Keranjang
 
-                <i class="fa-brands fa-whatsapp"></i>
+                </a>
 
-            </a>
+                <!-- WhatsApp -->
+                <a
+                    href="https://wa.me/6281234567890"
+                    target="_blank"
+                    class="btn-whatsapp"
+                >
+
+                    <i class="fa-brands fa-whatsapp"></i>
+
+                </a>
+
+            @else
+
+                <!-- Keranjang -->
+                <a
+                    href="{{ route('login') }}"
+                    class="btn-detail"
+                >
+
+                    <i class="fa-solid fa-cart-shopping me-1"></i>
+
+                    Login Dulu
+
+                </a>
+
+                <!-- WhatsApp -->
+                <a
+                    href="{{ route('login') }}"
+                    class="btn-whatsapp"
+                    title="Login terlebih dahulu"
+                >
+
+                    <i class="fa-brands fa-whatsapp"></i>
+
+                </a>
+
+            @endauth
 
         </div>
 
