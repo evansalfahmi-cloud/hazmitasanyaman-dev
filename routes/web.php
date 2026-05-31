@@ -6,6 +6,7 @@ use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\TestimoniController;
 
 Route::get('/', [HomeController::class, 'index']);
 
@@ -63,6 +64,10 @@ Route::middleware(['auth'])
 
         Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])
             ->name('admin.categories.destroy');
+
+        //testimoni
+        Route::get('/testimoni', [TestimoniController::class, 'index'])
+        ->name('admin.testimoni.index');
     });
 
 require __DIR__.'/auth.php';

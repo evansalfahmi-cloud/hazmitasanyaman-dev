@@ -28,16 +28,16 @@
     </a>
 
     <a
-        href="#"
-        class="nav-link text-white py-3"
+        href="{{ route('admin.products.index') }}"
+        class="nav-link py-3 {{ request()->routeIs('admin.products.*') ? 'active' : 'text-white' }}"
     >
         <i class="fa-solid fa-box-open me-2"></i>
         Produk
     </a>
 
     <a
-        href="#"
-        class="nav-link text-white py-3"
+        href="{{ route('admin.categories.index') }}"
+        class="nav-link py-3 {{ request()->routeIs('admin.categories.*') ? 'active' : 'text-white' }}"
     >
         <i class="fa-solid fa-layer-group me-2"></i>
         Kategori
