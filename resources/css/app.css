@@ -2277,3 +2277,34 @@ img {
     max-height: 85vh;
     object-fit: contain;
 }
+
+/* ==========================================
+   FIX PAGINATION LARAVEL
+========================================== */
+
+.pagination {
+    justify-content: center;
+    gap: 6px;
+}
+
+.pagination svg {
+    width: 14px !important;
+    height: 14px !important;
+}
+
+.pagination .page-link {
+    color: #9c5a35;
+    border: 1px solid #ddd;
+}
+
+.pagination .page-link:hover {
+    color: #fff;
+    background: #9c5a35;
+    border-color: #9c5a35;
+}
+
+.pagination .active .page-link {
+    background: #9c5a35;
+    border-color: #9c5a35;
+    color: #fff;
+}
